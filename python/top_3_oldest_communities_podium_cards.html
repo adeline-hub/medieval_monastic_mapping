@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 3 Oldest Monastic Communities</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .card h2 {
+      color: #333;
+      margin: 10px 0;
+      font-size: 1.5em;
+    }
+    .card p {
+      color: #666;
+      margin: 5px 0;
+      font-size: 0.9em;
+    }
+    .rank {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #d4af37; /* Gold */
+      margin-bottom: 10px;
+    }
+    .rank银 { color: #c0c0c0; }  /* Silver */
+    .rank铜 { color: #cd7f32; }  /* Bronze */
+    h1 {
+      text-align: center;
+      color: #333;
+      width: 100%;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Top 3 Oldest Monastic Communities by Duration</h1>
+  <div class="container">
+
+    <div class="card">
+      <div class="rank">1st Place</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Seligenstadt_2002_-Kloster_Seligenstadt-_Basilika_St._Marcellinus_und_Petrus_by-RaBoe_06.jpg/800px-Seligenstadt_2002_-Kloster_Seligenstadt-_Basilika_St._Marcellinus_und_Petrus_by-RaBoe_06.jpg" alt="Deir Mar Maroun Image"
+           onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'; this.alt='Image Not Available';">
+      <h2>Deir Mar Maroun</h2>
+      <p>Duration: 1775 years</p>
+      <p>Religious Order: Lebanese Maronite Order </p>
+      <p>Founded: 250</p>
+      <p>Gender: Male</p>
+    </div>
+    
+    <div class="card">
+      <div class="rank银">2nd Place</div>
+      <img src="https://www.augustijnenkerk.nl/images/stories/kerk/ModuleWelkom-850.webp" alt="Khor Virap Monastery Image"
+           onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'; this.alt='Image Not Available';">
+      <h2>Khor Virap Monastery</h2>
+      <p>Duration: 1724 years</p>
+      <p>Religious Order: Armenian Orthodox </p>
+      <p>Founded: 301</p>
+      <p>Gender: Male</p>
+    </div>
+    
+    <div class="card">
+      <div class="rank铜">3rd Place</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/MNW-Faras_Gallery_model_of_the_cathedral.jpg/1024px-MNW-Faras_Gallery_model_of_the_cathedral.jpg" alt="Deir El Shohada Image"
+           onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'; this.alt='Image Not Available';">
+      <h2>Deir El Shohada</h2>
+      <p>Duration: 1722 years</p>
+      <p>Religious Order: Coptic Orthodox </p>
+      <p>Founded: 303</p>
+      <p>Gender: Male</p>
+    </div>
+    
+  </div>
+</body>
+</html>
