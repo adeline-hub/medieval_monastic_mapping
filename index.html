@@ -78,7 +78,7 @@
       },
       "itemOffered": {
         "@type": "Service",
-        "name": "Freelance Data Science Services",
+        "name": "Data Science Services",
         "description": "Historical data analysis, visualization, and digital humanities consulting"
       }
     }
@@ -140,6 +140,297 @@
 
 
 <body>
+
+<!-- Add this right after the opening <body> tag -->
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- Logo/Title -->
+    <div class="nav-brand">
+      <a href="#top">Medieval Monastic Mapping</a>
+    </div>
+    
+    <!-- Navigation Links -->
+    <ul class="nav-menu">
+      <!-- Report Sections -->
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Report <i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#economic-clout">Part 1: Economic Clout</a></li>
+          <li><a href="#social-organization">Part 2: Social Organization</a></li>
+          <li><a href="#religious-orders">Part 3: Religious Orders</a></li>
+          <li><a href="#ecosystem">Part 4: Ecosystem</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+      </li>
+      
+      <!-- Contact Links -->
+      <li class="nav-item">
+        <a href="mailto:your.email@example.com" class="nav-link" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="https://linkedin.com/in/your-profile" class="nav-link" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="https://bsky.app/profile/your-handle.bsky.social" class="nav-link" target="_blank" title="Bluesky">
+          <i class="fas fa-cloud"></i>
+        </a>
+      </li>
+    </ul>
+    
+    <!-- Mobile Menu Toggle -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Add this CSS to your <style> section or separate CSS file -->
+<style>
+  /* Reset and Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Navigation Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .nav-brand a {
+    font-family: "Lexend Giga", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-brand a:hover {
+    color: #75c8ae;
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    font-family: "Genos", serif;
+    font-size: 1.1rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-link:hover {
+    color: #333;
+  }
+  
+  .nav-link i {
+    font-size: 1.2rem;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .dropdown-menu li {
+    padding: 0;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 0.7rem 1.5rem;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f8f8f8;
+    color: #333;
+    padding-left: 2rem;
+  }
+  
+  /* Mobile Menu Styles */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 3px;
+  }
+  
+  /* Add padding to body to account for fixed navbar */
+  body {
+    padding-top: 60px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 60px;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+      padding: 2rem 0;
+    }
+    
+    .nav-menu.active {
+      left: 0;
+    }
+    
+    .nav-item {
+      margin: 1rem 0;
+    }
+    
+    .hamburger {
+      display: flex;
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    .dropdown-menu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      background-color: #f8f8f8;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  /* Smooth Scroll for Navigation */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Active Section Highlighting */
+  .nav-link.active {
+    color: #75c8ae;
+    font-weight: 600;
+  }
+</style>
+
+<!-- Add this JavaScript for mobile menu functionality -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Add scroll effect to navbar
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      const navbar = document.querySelector('.navbar');
+      
+      if (currentScroll <= 0) {
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+      } else {
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+      }
+      
+      lastScroll = currentScroll;
+    });
+  });
+</script>
+
+
+
+  
   <div style=" text-align: center; margin: auto; max-width: 800px; ">
     <p style=" font-size: 30px">The Monastery Unpacked: A Data-Driven Dissection of Medieval Wealth, Influence, and Gender Dynamics</p>
     <p style=" font-size: 20px">by <a href="">NAVY</a></p>
