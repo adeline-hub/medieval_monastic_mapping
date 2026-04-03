@@ -1,1 +1,51 @@
+project:
+  type: website
+  output-dir: ../docs
 
+website:
+  title: ".danki Audit: Medieval Institutional Infrastructure"
+  favicon: assets/favicon.ico
+  navbar:
+    background: "#121212"
+    foreground: "#FFFFFF"
+    left:
+      - text: "Workbench"
+        href: index.qmd
+      - text: "Community Explorer"
+        href: app.qmd
+      - text: "Methodology"
+        href: methodology.qmd
+      - text: "Findings"
+        href: findings.qmd
+      - text: "Discussion"
+        href: discussion.qmd
+    right:
+      - icon: github
+        href: https://github.com/adeline-hub/medieval-monastic-mapping
+
+format:
+  html:
+    theme:
+      dark: darkly
+    css: report-style.css
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    fontsize: "0.95em"
+    mainfont: "Inter, sans-serif"
+    highlight-style: monokai
+
+  pdf:
+    documentclass: article
+    papersize: a4
+    mainfont: "Inter"
+    fontsize: 11pt
+    toc: true
+    number-sections: true
+    colorlinks: true
+    linkcolor: "#33FFA2"
+    citecolor: "#FF33FF"
+
+bibliography: references.bib
+csl: apa.csl
