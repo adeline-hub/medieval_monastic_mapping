@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>The Cartography of Silence – Medieval Monastic Mapping</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,9 +21,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -37,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -89,16 +85,15 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./assets/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-ff73747157bea4a22cb1ab1a769f836e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c9f0887447d3a639491f60c4af03832d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-49af8e9d09828102a946480f446522de.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-7f2d32e2dcbc1723ab3bb8c40874ef1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -134,7 +129,7 @@ div.csl-indent {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -251,7 +246,7 @@ Scroll to traverse time. Current Year: <span id="year-display" style="color: #FF
 <div class="cell">
 <details class="code-fold hidden">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="38" data-source-offset="-30"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 37;"><span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>sitesRaw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/monastic_sites.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})</span>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="38" data-source-offset="-31"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 37;"><span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>sitesRaw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/monastic_sites.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>edgesRaw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/community_network.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">// Clean edges: parse "1150-2025" into a numeric duration for path opacity</span></span>
@@ -416,7 +411,7 @@ Scroll to traverse time. Current Year: <span id="year-display" style="color: #FF
 <span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Append SVG to the DOM</span></span>
 <span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(svg<span class="op">.</span><span class="fu">node</span>())<span class="op">;</span></span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -497,7 +492,7 @@ University of St Andrews. (2024). <em>Monastic matrix: A scholarly resource for 
 
 <!-- -->
 <div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The Cartography of Silence"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
@@ -514,192 +509,192 @@ University of St Andrews. (2024). <em>Monastic matrix: A scholarly resource for 
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>::: {style="position: sticky; top: 0; height: 100vh; width: 100vw; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center;"}</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Title overlay that fades as we scroll. ALL HTML IS FLUSH LEFT TO PREVENT CODE BLOCKS! --&gt;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"position: absolute; top: 5%; left: 5%; z-index: 10; font-family: 'Roboto', sans-serif; pointer-events: none;"</span><span class="dt">&gt;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> style</span><span class="op">=</span><span class="st">"color: #33FFA2; margin-bottom: 0;"</span><span class="dt">&gt;</span>The Cartography of Silence<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>&lt;div style="position: absolute; top: 5%; left: 5%; z-index: 10; font-family: 'Roboto', sans-serif; pointer-events: none;"&gt;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>&lt;h1 style="color: #33FFA2; margin-bottom: 0;"&gt;The Cartography of Silence&lt;/h1&gt;</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"display: flex; gap: 20px; margin-top: 5px; margin-bottom: 15px; font-size: 0.8rem; color: #737373; text-transform: uppercase; letter-spacing: 1px;"</span><span class="dt">&gt;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Author:<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span> nambo yang<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Published:<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span> April 3, 2026<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>&lt;div style="display: flex; gap: 20px; margin-top: 5px; margin-bottom: 15px; font-size: 0.8rem; color: #737373; text-transform: uppercase; letter-spacing: 1px;"&gt;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>&lt;div&gt;&lt;b&gt;Author:&lt;/b&gt; nambo yang&lt;/div&gt;</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>&lt;div&gt;&lt;b&gt;Published:&lt;/b&gt; April 3, 2026&lt;/div&gt;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"color: #737373; font-size: 1.2rem;"</span><span class="dt">&gt;</span>Scroll to traverse time. Current Year: <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> id</span><span class="op">=</span><span class="st">"year-display"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"color: #FF33FF; font-weight: bold;"</span><span class="dt">&gt;</span>300 AD<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>&lt;p style="color: #737373; font-size: 1.2rem;"&gt;Scroll to traverse time. Current Year: &lt;span id="year-display" style="color: #FF33FF; font-weight: bold;"&gt;300 AD&lt;/span&gt;&lt;/p&gt;</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">"color: #737373; font-size: 0.9rem; pointer-events: auto;"</span><span class="dt">&gt;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="dt">&gt;</span>Data Source:<span class="dt">&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> <span class="co">[</span><span class="ot">@monasticmatrix</span><span class="co">]</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>&lt;p style="color: #737373; font-size: 0.9rem; pointer-events: auto;"&gt;</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>&lt;i&gt;Data Source:&lt;/i&gt; <span class="co">[</span><span class="ot">@monasticmatrix</span><span class="co">]</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- This div holds our OJS D3 Visualization --&gt;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">"vis-container"</span><span class="ot"> style</span><span class="op">=</span><span class="st">"width: 100%; height: 100%;"</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>&lt;div id="vis-container" style="width: 100%; height: 100%;"&gt;&lt;/div&gt;</span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">// 1. LOAD AND CLEAN THE DATA</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>sitesRaw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/monastic_sites.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>edgesRaw <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"data/community_network.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({<span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span>})</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="in">// 1. LOAD AND CLEAN THE DATA</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="in">sitesRaw = FileAttachment("data/monastic_sites.csv").csv({typed: true})</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="in">edgesRaw = FileAttachment("data/community_network.csv").csv({typed: true})</span></span>
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">// Clean edges: parse "1150-2025" into a numeric duration for path opacity</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>edgesCleaned <span class="op">=</span> edgesRaw<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> {</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> duration <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (d<span class="op">.</span><span class="at">shared_period</span> <span class="op">&amp;&amp;</span> <span class="kw">typeof</span> d<span class="op">.</span><span class="at">shared_period</span> <span class="op">===</span> <span class="st">'string'</span>) {</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> parts <span class="op">=</span> d<span class="op">.</span><span class="at">shared_period</span><span class="op">.</span><span class="fu">split</span>(<span class="st">'-'</span>)<span class="op">;</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(parts<span class="op">.</span><span class="at">length</span> <span class="op">===</span> <span class="dv">2</span>) {</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      duration <span class="op">=</span> <span class="pp">parseInt</span>(parts[<span class="dv">1</span>]) <span class="op">-</span> <span class="pp">parseInt</span>(parts[<span class="dv">0</span>])<span class="op">;</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> { <span class="op">...</span>d<span class="op">,</span> <span class="dt">duration_num</span><span class="op">:</span> duration }<span class="op">;</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="in">// Clean edges: parse "1150-2025" into a numeric duration for path opacity</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="in">edgesCleaned = edgesRaw.map(d =&gt; {</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="in">  let duration = 0;</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="in">  if (d.shared_period &amp;&amp; typeof d.shared_period === 'string') {</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="in">    let parts = d.shared_period.split('-');</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="in">    if(parts.length === 2) {</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="in">      duration = parseInt(parts[1]) - parseInt(parts[0]);</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="in">  return { ...d, duration_num: duration };</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="in">})</span></span>
 <span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. SCROLLYTELLING LOGIC (Map scroll position to Year: 300 AD to 2025 AD)</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>mutable currentYear <span class="op">=</span> <span class="dv">300</span><span class="op">;</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="in">// 2. SCROLLYTELLING LOGIC (Map scroll position to Year: 300 AD to 2025 AD)</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="in">mutable currentYear = 300;</span></span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>updateYear <span class="op">=</span> {</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> handler <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> scrollY <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">scrollY</span><span class="op">;</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> maxScroll <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">scrollHeight</span> <span class="op">-</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerHeight</span><span class="op">;</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> scrollProgress <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">1</span><span class="op">,</span> scrollY <span class="op">/</span> maxScroll))<span class="op">;</span> <span class="co">// clamp 0-1</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Map progress to years (300 to 2025)</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    mutable currentYear <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="dv">300</span> <span class="op">+</span> (scrollProgress <span class="op">*</span> (<span class="dv">2025</span> <span class="op">-</span> <span class="dv">300</span>)))<span class="op">;</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> display <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"year-display"</span>)<span class="op">;</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (display) display<span class="op">.</span><span class="at">innerText</span> <span class="op">=</span> mutable currentYear <span class="op">+</span> <span class="st">" AD"</span><span class="op">;</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  <span class="bu">window</span><span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">"scroll"</span><span class="op">,</span> handler)<span class="op">;</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">handler</span>()<span class="op">;</span> <span class="co">// Init</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> () <span class="kw">=&gt;</span> <span class="bu">window</span><span class="op">.</span><span class="fu">removeEventListener</span>(<span class="st">"scroll"</span><span class="op">,</span> handler)<span class="op">;</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="in">updateYear = {</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="in">  const handler = () =&gt; {</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="in">    const scrollY = window.scrollY;</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="in">    const maxScroll = document.body.scrollHeight - window.innerHeight;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="in">    const scrollProgress = Math.max(0, Math.min(1, scrollY / maxScroll)); // clamp 0-1</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">    // Map progress to years (300 to 2025)</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="in">    mutable currentYear = Math.floor(300 + (scrollProgress * (2025 - 300)));</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="in">    const display = document.getElementById("year-display");</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="in">    if (display) display.innerText = mutable currentYear + " AD";</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="in">  };</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="in">  window.addEventListener("scroll", handler);</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="in">  handler(); // Init</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="in">  return () =&gt; window.removeEventListener("scroll", handler);</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="co">// 3. REACTIVE DATA FILTERING</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co">// Monastery must be founded before current year, AND not yet dissolved</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>activeSites <span class="op">=</span> sitesRaw<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> {</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> founded <span class="op">=</span> d<span class="op">.</span><span class="at">founded</span> <span class="op">||</span> <span class="dv">9999</span><span class="op">;</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> dissolved <span class="op">=</span> d<span class="op">.</span><span class="at">dissolution</span> <span class="op">||</span> <span class="dv">2025</span><span class="op">;</span> <span class="co">// Assume still active if null</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> founded <span class="op">&lt;=</span> currentYear <span class="op">&amp;&amp;</span> dissolved <span class="op">&gt;=</span> currentYear<span class="op">;</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="in">// 3. REACTIVE DATA FILTERING</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="in">// Monastery must be founded before current year, AND not yet dissolved</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="in">activeSites = sitesRaw.filter(d =&gt; {</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="in">  const founded = d.founded || 9999;</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="in">  const dissolved = d.dissolution || 2025; // Assume still active if null</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="in">  return founded &lt;= currentYear &amp;&amp; dissolved &gt;= currentYear;</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="in">})</span></span>
 <span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>activeSiteIds <span class="op">=</span> <span class="kw">new</span> <span class="bu">Set</span>(activeSites<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">name</span>))</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="in">activeSiteIds = new Set(activeSites.map(d =&gt; d.name))</span></span>
 <span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="co">// Edges only exist if BOTH sister abbeys exist in this year</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>activeEdges <span class="op">=</span> edgesCleaned<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> activeSiteIds<span class="op">.</span><span class="fu">has</span>(d<span class="op">.</span><span class="at">source</span>) <span class="op">&amp;&amp;</span> activeSiteIds<span class="op">.</span><span class="fu">has</span>(d<span class="op">.</span><span class="at">target</span>))</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="in">// Edges only exist if BOTH sister abbeys exist in this year</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="in">activeEdges = edgesCleaned.filter(d =&gt; activeSiteIds.has(d.source) &amp;&amp; activeSiteIds.has(d.target))</span></span>
 <span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co">// 4. THE ORGANIC D3 VISUALIZATION</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> {</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Clear previous renders (important for OJS reactivity)</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"vis-container"</span>)<span class="op">;</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (container) container<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> w <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"vis-container"</span>)<span class="op">.</span><span class="at">clientWidth</span> <span class="op">||</span> <span class="dv">1000</span><span class="op">;</span> </span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> h <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">innerHeight</span><span class="op">;</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">create</span>(<span class="st">"svg"</span>)</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> w)</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> h)</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">style</span>(<span class="st">"background"</span><span class="op">,</span> <span class="st">"#121212"</span>)<span class="op">;</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="in">// 4. THE ORGANIC D3 VISUALIZATION</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="in">chart = {</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="in">  // Clear previous renders (important for OJS reactivity)</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="in">  const container = document.getElementById("vis-container");</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="in">  if (container) container.innerHTML = "";</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="in">  const w = document.getElementById("vis-container").clientWidth || 1000; </span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="in">  const h = window.innerHeight;</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="in">  const svg = d3.create("svg")</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("width", w)</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("height", h)</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="in">      .style("background", "#121212");</span></span>
 <span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Create a glow filter for the nodes</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> defs <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"defs"</span>)<span class="op">;</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> filter <span class="op">=</span> defs<span class="op">.</span><span class="fu">append</span>(<span class="st">"filter"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"id"</span><span class="op">,</span> <span class="st">"glow"</span>)<span class="op">;</span></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>  filter<span class="op">.</span><span class="fu">append</span>(<span class="st">"feGaussianBlur"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"stdDeviation"</span><span class="op">,</span> <span class="st">"2.5"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"result"</span><span class="op">,</span> <span class="st">"coloredBlur"</span>)<span class="op">;</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> feMerge <span class="op">=</span> filter<span class="op">.</span><span class="fu">append</span>(<span class="st">"feMerge"</span>)<span class="op">;</span></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  feMerge<span class="op">.</span><span class="fu">append</span>(<span class="st">"feMergeNode"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"in"</span><span class="op">,</span> <span class="st">"coloredBlur"</span>)<span class="op">;</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>  feMerge<span class="op">.</span><span class="fu">append</span>(<span class="st">"feMergeNode"</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"in"</span><span class="op">,</span> <span class="st">"SourceGraphic"</span>)<span class="op">;</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="in">  // Create a glow filter for the nodes</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="in">  const defs = svg.append("defs");</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="in">  const filter = defs.append("filter").attr("id", "glow");</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="in">  filter.append("feGaussianBlur").attr("stdDeviation", "2.5").attr("result", "coloredBlur");</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="in">  const feMerge = filter.append("feMerge");</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="in">  feMerge.append("feMergeNode").attr("in", "coloredBlur");</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="in">  feMerge.append("feMergeNode").attr("in", "SourceGraphic");</span></span>
 <span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Geographic Projection (With safety filter for missing lat/lon)</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> validSites <span class="op">=</span> sitesRaw<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d <span class="op">&amp;&amp;</span> d<span class="op">.</span><span class="at">lon</span> <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> d<span class="op">.</span><span class="at">lat</span> <span class="op">!=</span> <span class="kw">null</span>)<span class="op">;</span></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> projection <span class="op">=</span> d3<span class="op">.</span><span class="fu">geoMercator</span>()</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">fitSize</span>([w <span class="op">*</span> <span class="fl">0.85</span><span class="op">,</span> h <span class="op">*</span> <span class="fl">0.85</span>]<span class="op">,</span> {</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>        <span class="dt">type</span><span class="op">:</span> <span class="st">"FeatureCollection"</span><span class="op">,</span> </span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>        <span class="dt">features</span><span class="op">:</span> validSites<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> ({</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>          <span class="dt">type</span><span class="op">:</span> <span class="st">"Feature"</span><span class="op">,</span> </span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>          <span class="dt">geometry</span><span class="op">:</span> {<span class="dt">type</span><span class="op">:</span> <span class="st">"Point"</span><span class="op">,</span> <span class="dt">coordinates</span><span class="op">:</span> [d<span class="op">.</span><span class="at">lon</span><span class="op">,</span> d<span class="op">.</span><span class="at">lat</span>]}</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>        }))</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>      })<span class="op">;</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="in">  // Geographic Projection (With safety filter for missing lat/lon)</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="in">  const validSites = sitesRaw.filter(d =&gt; d &amp;&amp; d.lon != null &amp;&amp; d.lat != null);</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="in">  const projection = d3.geoMercator()</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="in">      .fitSize([w * 0.85, h * 0.85], {</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="in">        type: "FeatureCollection", </span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="in">        features: validSites.map(d =&gt; ({</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="in">          type: "Feature", </span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="in">          geometry: {type: "Point", coordinates: [d.lon, d.lat]}</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="in">        }))</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="in">      });</span></span>
 <span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Danki Brand Colors mapped to your real data's specific Orthodox orders</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> colorMap <span class="op">=</span> {</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Georgian Orthodox"</span><span class="op">:</span> <span class="st">"#33FFA2"</span><span class="op">,</span>  <span class="co">// Fluorescent Green</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Bulgarian Orthodox"</span><span class="op">:</span> <span class="st">"#FF33FF"</span><span class="op">,</span> <span class="co">// Fluorescent Violet</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Armenian Orthodox"</span><span class="op">:</span> <span class="st">"#FF33FF"</span><span class="op">,</span>  <span class="co">// Fluorescent Violet</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Coptic Orthodox"</span><span class="op">:</span> <span class="st">"#737373"</span><span class="op">,</span>    <span class="co">// Grey</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Greek Orthodox"</span><span class="op">:</span> <span class="st">"#737373"</span>      <span class="co">// Grey</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> defaultColor <span class="op">=</span> <span class="st">"#737373"</span><span class="op">;</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="in">  // Danki Brand Colors mapped to your real data's specific Orthodox orders</span></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="in">  const colorMap = {</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="in">    "Georgian Orthodox": "#33FFA2",  // Fluorescent Green</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="in">    "Bulgarian Orthodox": "#FF33FF", // Fluorescent Violet</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a><span class="in">    "Armenian Orthodox": "#FF33FF",  // Fluorescent Violet</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="in">    "Coptic Orthodox": "#737373",    // Grey</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="in">    "Greek Orthodox": "#737373"      // Grey</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="in">  };</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="in">  const defaultColor = "#737373";</span></span>
 <span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  <span class="co">// DRAW EDGES (Organic Bezier Curves)</span></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"path"</span>)</span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">data</span>(activeEdges)</span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">join</span>(<span class="st">"path"</span>)</span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"none"</span>)</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke"</span><span class="op">,</span> <span class="st">"#737373"</span>)</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-width"</span><span class="op">,</span> <span class="fl">1.2</span>)</span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Opacity based on how long they shared a connection</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"stroke-opacity"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="fl">0.5</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="fl">0.1</span><span class="op">,</span> d<span class="op">.</span><span class="at">duration_num</span> <span class="op">/</span> <span class="dv">1000</span>))) </span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"d"</span><span class="op">,</span> d <span class="kw">=&gt;</span> {</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> s <span class="op">=</span> activeSites<span class="op">.</span><span class="fu">find</span>(n <span class="kw">=&gt;</span> n<span class="op">.</span><span class="at">name</span> <span class="op">===</span> d<span class="op">.</span><span class="at">source</span>)<span class="op">;</span></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> t <span class="op">=</span> activeSites<span class="op">.</span><span class="fu">find</span>(n <span class="kw">=&gt;</span> n<span class="op">.</span><span class="at">name</span> <span class="op">===</span> d<span class="op">.</span><span class="at">target</span>)<span class="op">;</span></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="op">!</span>s <span class="op">||</span> <span class="op">!</span>t <span class="op">||</span> <span class="op">!</span>s<span class="op">.</span><span class="at">lon</span> <span class="op">||</span> <span class="op">!</span>t<span class="op">.</span><span class="at">lon</span>) <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> p1 <span class="op">=</span> <span class="fu">projection</span>([s<span class="op">.</span><span class="at">lon</span><span class="op">,</span> s<span class="op">.</span><span class="at">lat</span>])<span class="op">;</span></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> p2 <span class="op">=</span> <span class="fu">projection</span>([t<span class="op">.</span><span class="at">lon</span><span class="op">,</span> t<span class="op">.</span><span class="at">lat</span>])<span class="op">;</span></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> dx <span class="op">=</span> p2[<span class="dv">0</span>] <span class="op">-</span> p1[<span class="dv">0</span>]<span class="op">,</span> dy <span class="op">=</span> p2[<span class="dv">1</span>] <span class="op">-</span> p1[<span class="dv">1</span>]<span class="op">;</span></span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>        <span class="co">// The Q (Quadratic Bezier) creates the sweeping arc</span></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="vs">`M</span><span class="sc">${</span>p1[<span class="dv">0</span>]<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>p1[<span class="dv">1</span>]<span class="sc">}</span><span class="vs"> Q</span><span class="sc">${</span>p1[<span class="dv">0</span>] <span class="op">+</span> dy<span class="op">/</span><span class="dv">3</span><span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>p1[<span class="dv">1</span>] <span class="op">-</span> dx<span class="op">/</span><span class="dv">3</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>p2[<span class="dv">0</span>]<span class="sc">}</span><span class="vs">,</span><span class="sc">${</span>p2[<span class="dv">1</span>]<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>      })<span class="op">;</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="in">  // DRAW EDGES (Organic Bezier Curves)</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="in">  svg.append("g")</span></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="in">    .selectAll("path")</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a><span class="in">    .data(activeEdges)</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="in">    .join("path")</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("fill", "none")</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("stroke", "#737373")</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("stroke-width", 1.2)</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="in">      // Opacity based on how long they shared a connection</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("stroke-opacity", d =&gt; Math.min(0.5, Math.max(0.1, d.duration_num / 1000))) </span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("d", d =&gt; {</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="in">        const s = activeSites.find(n =&gt; n.name === d.source);</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a><span class="in">        const t = activeSites.find(n =&gt; n.name === d.target);</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a><span class="in">        if (!s || !t || !s.lon || !t.lon) return null;</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="in">        </span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a><span class="in">        const p1 = projection([s.lon, s.lat]);</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="in">        const p2 = projection([t.lon, t.lat]);</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="in">        </span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a><span class="in">        const dx = p2[0] - p1[0], dy = p2[1] - p1[1];</span></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a><span class="in">        // The Q (Quadratic Bezier) creates the sweeping arc</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="in">        return `M${p1[0]},${p1[1]} Q${p1[0] + dy/3},${p1[1] - dx/3} ${p2[0]},${p2[1]}`;</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="in">      });</span></span>
 <span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>  <span class="co">// DRAW NODES (Glowing Constellation Stars)</span></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>  svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"circle"</span>)</span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">data</span>(activeSites<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">lon</span> <span class="op">&amp;&amp;</span> d<span class="op">.</span><span class="at">lat</span>))</span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">join</span>(<span class="st">"circle"</span>)</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"cx"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">projection</span>([d<span class="op">.</span><span class="at">lon</span><span class="op">,</span> d<span class="op">.</span><span class="at">lat</span>])[<span class="dv">0</span>])</span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"cy"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">projection</span>([d<span class="op">.</span><span class="at">lon</span><span class="op">,</span> d<span class="op">.</span><span class="at">lat</span>])[<span class="dv">1</span>])</span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">2</span><span class="op">,</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(d<span class="op">.</span><span class="at">lifespan</span> <span class="op">||</span> <span class="dv">100</span>) <span class="op">*</span> <span class="fl">0.3</span>)) <span class="co">// Size by lifespan</span></span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> d <span class="kw">=&gt;</span> colorMap[d<span class="op">.</span><span class="at">order</span>] <span class="op">||</span> defaultColor)</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"opacity"</span><span class="op">,</span> <span class="fl">0.9</span>)</span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">style</span>(<span class="st">"filter"</span><span class="op">,</span> <span class="st">"url(#glow)"</span>)</span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">"title"</span>) <span class="co">// Native hover tooltip</span></span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">text</span>(d <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">name</span><span class="sc">}\n</span><span class="vs">Founded: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">founded</span><span class="sc">}\n</span><span class="vs">Dissolved: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">dissolution</span> <span class="op">||</span> <span class="st">'Active'</span><span class="sc">}\n</span><span class="vs">Order: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">order</span><span class="sc">}\n</span><span class="vs">Lifespan: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">lifespan</span><span class="sc">}</span><span class="vs"> years`</span>)<span class="op">;</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="in">  // DRAW NODES (Glowing Constellation Stars)</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="in">  svg.append("g")</span></span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a><span class="in">    .selectAll("circle")</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="in">    .data(activeSites.filter(d =&gt; d.lon &amp;&amp; d.lat))</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="in">    .join("circle")</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("cx", d =&gt; projection([d.lon, d.lat])[0])</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("cy", d =&gt; projection([d.lon, d.lat])[1])</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("r", d =&gt; Math.max(2, Math.sqrt(d.lifespan || 100) * 0.3)) // Size by lifespan</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("fill", d =&gt; colorMap[d.order] || defaultColor)</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("opacity", 0.9)</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="in">      .style("filter", "url(#glow)")</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="in">    .append("title") // Native hover tooltip</span></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a><span class="in">      .text(d =&gt; `${d.name}\nFounded: ${d.founded}\nDissolved: ${d.dissolution || 'Active'}\nOrder: ${d.order}\nLifespan: ${d.lifespan} years`);</span></span>
 <span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ==========================================</span></span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>  <span class="co">// DRAW THE LEGEND (Bottom Center)</span></span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>  <span class="co">// ==========================================</span></span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Calculate how wide the legend will be to center it perfectly</span></span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> legendSpacing <span class="op">=</span> <span class="dv">160</span><span class="op">;</span></span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> legendEntries <span class="op">=</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">entries</span>(colorMap)<span class="op">;</span></span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> totalLegendWidth <span class="op">=</span> legendEntries<span class="op">.</span><span class="at">length</span> <span class="op">*</span> legendSpacing<span class="op">;</span></span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> startX <span class="op">=</span> (w <span class="op">/</span> <span class="dv">2</span>) <span class="op">-</span> (totalLegendWidth <span class="op">/</span> <span class="dv">2</span>) <span class="op">+</span> (legendSpacing <span class="op">/</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="in">  // ==========================================</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="in">  // DRAW THE LEGEND (Bottom Center)</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a><span class="in">  // ==========================================</span></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a><span class="in">  // Calculate how wide the legend will be to center it perfectly</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a><span class="in">  const legendSpacing = 160;</span></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a><span class="in">  const legendEntries = Object.entries(colorMap);</span></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="in">  const totalLegendWidth = legendEntries.length * legendSpacing;</span></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="in">  const startX = (w / 2) - (totalLegendWidth / 2) + (legendSpacing / 2);</span></span>
 <span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> legend <span class="op">=</span> svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span>startX<span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>h <span class="op">-</span> <span class="dv">50</span><span class="sc">}</span><span class="vs">)`</span>)<span class="op">;</span> <span class="co">// 50px from the bottom</span></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="in">  const legend = svg.append("g")</span></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a><span class="in">      .attr("transform", `translate(${startX}, ${h - 50})`); // 50px from the bottom</span></span>
 <span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>  legendEntries<span class="op">.</span><span class="fu">forEach</span>(([order<span class="op">,</span> color]<span class="op">,</span> i) <span class="kw">=&gt;</span> {</span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> legendItem <span class="op">=</span> legend<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span>i <span class="op">*</span> legendSpacing<span class="sc">}</span><span class="vs">, 0)`</span>)<span class="op">;</span></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="in">  legendEntries.forEach(([order, color], i) =&gt; {</span></span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a><span class="in">      const legendItem = legend.append("g")</span></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="in">          .attr("transform", `translate(${i * legendSpacing}, 0)`);</span></span>
 <span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Legend Glow Circle</span></span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>      legendItem<span class="op">.</span><span class="fu">append</span>(<span class="st">"circle"</span>)</span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">"r"</span><span class="op">,</span> <span class="dv">6</span>)</span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> color)</span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">style</span>(<span class="st">"filter"</span><span class="op">,</span> <span class="st">"url(#glow)"</span>)<span class="op">;</span></span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a><span class="in">      // Legend Glow Circle</span></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a><span class="in">      legendItem.append("circle")</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a><span class="in">          .attr("r", 6)</span></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a><span class="in">          .attr("fill", color)</span></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a><span class="in">          .style("filter", "url(#glow)");</span></span>
 <span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Legend Text (Switched to Roboto)</span></span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a>      legendItem<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">text</span>(order)</span>
-<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="dv">15</span>) <span class="co">// Space between circle and text</span></span>
-<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">4</span>)  <span class="co">// Vertically align with circle</span></span>
-<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#737373"</span>) <span class="co">// Your Danki Grey</span></span>
-<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">style</span>(<span class="st">"font-family"</span><span class="op">,</span> <span class="st">"'Roboto', sans-serif"</span>)</span>
-<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">style</span>(<span class="st">"font-size"</span><span class="op">,</span> <span class="st">"14px"</span>)<span class="op">;</span></span>
-<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a><span class="in">      // Legend Text (Switched to Roboto)</span></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a><span class="in">      legendItem.append("text")</span></span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a><span class="in">          .text(order)</span></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a><span class="in">          .attr("x", 15) // Space between circle and text</span></span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a><span class="in">          .attr("y", 4)  // Vertically align with circle</span></span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a><span class="in">          .attr("fill", "#737373") // Your Danki Grey</span></span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a><span class="in">          .style("font-family", "'Roboto', sans-serif")</span></span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a><span class="in">          .style("font-size", "14px");</span></span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a><span class="in">  });</span></span>
 <span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Append SVG to the DOM</span></span>
-<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(svg<span class="op">.</span><span class="fu">node</span>())<span class="op">;</span></span>
-<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a><span class="in">  // Append SVG to the DOM</span></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="in">  container.appendChild(svg.node());</span></span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>::: </span>
 <span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a>::: </span>
@@ -712,12 +707,12 @@ University of St Andrews. (2024). <em>Monastic matrix: A scholarly resource for 
 <span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a>:::</span>
-</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 
 
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIDEuIExPQUQgQU5EIENMRUFOIFRIRSBEQVRBXG5zaXRlc1JhdyA9IEZpbGVBdHRhY2htZW50KFwiZGF0YS9tb25hc3RpY19zaXRlcy5jc3ZcIikuY3N2KHt0eXBlZDogdHJ1ZX0pXG5lZGdlc1JhdyA9IEZpbGVBdHRhY2htZW50KFwiZGF0YS9jb21tdW5pdHlfbmV0d29yay5jc3ZcIikuY3N2KHt0eXBlZDogdHJ1ZX0pXG5cbi8vIENsZWFuIGVkZ2VzOiBwYXJzZSBcIjExNTAtMjAyNVwiIGludG8gYSBudW1lcmljIGR1cmF0aW9uIGZvciBwYXRoIG9wYWNpdHlcbmVkZ2VzQ2xlYW5lZCA9IGVkZ2VzUmF3Lm1hcChkID0+IHtcbiAgbGV0IGR1cmF0aW9uID0gMDtcbiAgaWYgKGQuc2hhcmVkX3BlcmlvZCAmJiB0eXBlb2YgZC5zaGFyZWRfcGVyaW9kID09PSAnc3RyaW5nJykge1xuICAgIGxldCBwYXJ0cyA9IGQuc2hhcmVkX3BlcmlvZC5zcGxpdCgnLScpO1xuICAgIGlmKHBhcnRzLmxlbmd0aCA9PT0gMikge1xuICAgICAgZHVyYXRpb24gPSBwYXJzZUludChwYXJ0c1sxXSkgLSBwYXJzZUludChwYXJ0c1swXSk7XG4gICAgfVxuICB9XG4gIHJldHVybiB7IC4uLmQsIGR1cmF0aW9uX251bTogZHVyYXRpb24gfTtcbn0pXG5cbi8vIDIuIFNDUk9MTFlURUxMSU5HIExPR0lDIChNYXAgc2Nyb2xsIHBvc2l0aW9uIHRvIFllYXI6IDMwMCBBRCB0byAyMDI1IEFEKVxubXV0YWJsZSBjdXJyZW50WWVhciA9IDMwMDtcblxudXBkYXRlWWVhciA9IHtcbiAgY29uc3QgaGFuZGxlciA9ICgpID0+IHtcbiAgICBjb25zdCBzY3JvbGxZID0gd2luZG93LnNjcm9sbFk7XG4gICAgY29uc3QgbWF4U2Nyb2xsID0gZG9jdW1lbnQuYm9keS5zY3JvbGxIZWlnaHQgLSB3aW5kb3cuaW5uZXJIZWlnaHQ7XG4gICAgY29uc3Qgc2Nyb2xsUHJvZ3Jlc3MgPSBNYXRoLm1heCgwLCBNYXRoLm1pbigxLCBzY3JvbGxZIC8gbWF4U2Nyb2xsKSk7IC8vIGNsYW1wIDAtMVxuICAgIFxuICAgIC8vIE1hcCBwcm9ncmVzcyB0byB5ZWFycyAoMzAwIHRvIDIwMjUpXG4gICAgbXV0YWJsZSBjdXJyZW50WWVhciA9IE1hdGguZmxvb3IoMzAwICsgKHNjcm9sbFByb2dyZXNzICogKDIwMjUgLSAzMDApKSk7XG4gICAgXG4gICAgY29uc3QgZGlzcGxheSA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwieWVhci1kaXNwbGF5XCIpO1xuICAgIGlmIChkaXNwbGF5KSBkaXNwbGF5LmlubmVyVGV4dCA9IG11dGFibGUgY3VycmVudFllYXIgKyBcIiBBRFwiO1xuICB9O1xuICBcbiAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoXCJzY3JvbGxcIiwgaGFuZGxlcik7XG4gIGhhbmRsZXIoKTsgLy8gSW5pdFxuICByZXR1cm4gKCkgPT4gd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoXCJzY3JvbGxcIiwgaGFuZGxlcik7XG59XG5cbi8vIDMuIFJFQUNUSVZFIERBVEEgRklMVEVSSU5HXG4vLyBNb25hc3RlcnkgbXVzdCBiZSBmb3VuZGVkIGJlZm9yZSBjdXJyZW50IHllYXIsIEFORCBub3QgeWV0IGRpc3NvbHZlZFxuYWN0aXZlU2l0ZXMgPSBzaXRlc1Jhdy5maWx0ZXIoZCA9PiB7XG4gIGNvbnN0IGZvdW5kZWQgPSBkLmZvdW5kZWQgfHwgOTk5OTtcbiAgY29uc3QgZGlzc29sdmVkID0gZC5kaXNzb2x1dGlvbiB8fCAyMDI1OyAvLyBBc3N1bWUgc3RpbGwgYWN0aXZlIGlmIG51bGxcbiAgcmV0dXJuIGZvdW5kZWQgPD0gY3VycmVudFllYXIgJiYgZGlzc29sdmVkID49IGN1cnJlbnRZZWFyO1xufSlcblxuYWN0aXZlU2l0ZUlkcyA9IG5ldyBTZXQoYWN0aXZlU2l0ZXMubWFwKGQgPT4gZC5uYW1lKSlcblxuLy8gRWRnZXMgb25seSBleGlzdCBpZiBCT1RIIHNpc3RlciBhYmJleXMgZXhpc3QgaW4gdGhpcyB5ZWFyXG5hY3RpdmVFZGdlcyA9IGVkZ2VzQ2xlYW5lZC5maWx0ZXIoZCA9PiBhY3RpdmVTaXRlSWRzLmhhcyhkLnNvdXJjZSkgJiYgYWN0aXZlU2l0ZUlkcy5oYXMoZC50YXJnZXQpKVxuXG4vLyA0LiBUSEUgT1JHQU5JQyBEMyBWSVNVQUxJWkFUSU9OXG5jaGFydCA9IHtcbiAgLy8gQ2xlYXIgcHJldmlvdXMgcmVuZGVycyAoaW1wb3J0YW50IGZvciBPSlMgcmVhY3Rpdml0eSlcbiAgY29uc3QgY29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJ2aXMtY29udGFpbmVyXCIpO1xuICBpZiAoY29udGFpbmVyKSBjb250YWluZXIuaW5uZXJIVE1MID0gXCJcIjtcbiAgXG4gIGNvbnN0IHcgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcInZpcy1jb250YWluZXJcIikuY2xpZW50V2lkdGggfHwgMTAwMDsgXG4gIGNvbnN0IGggPSB3aW5kb3cuaW5uZXJIZWlnaHQ7XG4gIFxuICBjb25zdCBzdmcgPSBkMy5jcmVhdGUoXCJzdmdcIilcbiAgICAgIC5hdHRyKFwid2lkdGhcIiwgdylcbiAgICAgIC5hdHRyKFwiaGVpZ2h0XCIsIGgpXG4gICAgICAuc3R5bGUoXCJiYWNrZ3JvdW5kXCIsIFwiIzEyMTIxMlwiKTtcblxuICAvLyBDcmVhdGUgYSBnbG93IGZpbHRlciBmb3IgdGhlIG5vZGVzXG4gIGNvbnN0IGRlZnMgPSBzdmcuYXBwZW5kKFwiZGVmc1wiKTtcbiAgY29uc3QgZmlsdGVyID0gZGVmcy5hcHBlbmQoXCJmaWx0ZXJcIikuYXR0cihcImlkXCIsIFwiZ2xvd1wiKTtcbiAgZmlsdGVyLmFwcGVuZChcImZlR2F1c3NpYW5CbHVyXCIpLmF0dHIoXCJzdGREZXZpYXRpb25cIiwgXCIyLjVcIikuYXR0cihcInJlc3VsdFwiLCBcImNvbG9yZWRCbHVyXCIpO1xuICBjb25zdCBmZU1lcmdlID0gZmlsdGVyLmFwcGVuZChcImZlTWVyZ2VcIik7XG4gIGZlTWVyZ2UuYXBwZW5kKFwiZmVNZXJnZU5vZGVcIikuYXR0cihcImluXCIsIFwiY29sb3JlZEJsdXJcIik7XG4gIGZlTWVyZ2UuYXBwZW5kKFwiZmVNZXJnZU5vZGVcIikuYXR0cihcImluXCIsIFwiU291cmNlR3JhcGhpY1wiKTtcblxuICAvLyBHZW9ncmFwaGljIFByb2plY3Rpb24gKFdpdGggc2FmZXR5IGZpbHRlciBmb3IgbWlzc2luZyBsYXQvbG9uKVxuICBjb25zdCB2YWxpZFNpdGVzID0gc2l0ZXNSYXcuZmlsdGVyKGQgPT4gZCAmJiBkLmxvbiAhPSBudWxsICYmIGQubGF0ICE9IG51bGwpO1xuICBcbiAgY29uc3QgcHJvamVjdGlvbiA9IGQzLmdlb01lcmNhdG9yKClcbiAgICAgIC5maXRTaXplKFt3ICogMC44NSwgaCAqIDAuODVdLCB7XG4gICAgICAgIHR5cGU6IFwiRmVhdHVyZUNvbGxlY3Rpb25cIiwgXG4gICAgICAgIGZlYXR1cmVzOiB2YWxpZFNpdGVzLm1hcChkID0+ICh7XG4gICAgICAgICAgdHlwZTogXCJGZWF0dXJlXCIsIFxuICAgICAgICAgIGdlb21ldHJ5OiB7dHlwZTogXCJQb2ludFwiLCBjb29yZGluYXRlczogW2QubG9uLCBkLmxhdF19XG4gICAgICAgIH0pKVxuICAgICAgfSk7XG5cbiAgLy8gRGFua2kgQnJhbmQgQ29sb3JzIG1hcHBlZCB0byB5b3VyIHJlYWwgZGF0YSdzIHNwZWNpZmljIE9ydGhvZG94IG9yZGVyc1xuICBjb25zdCBjb2xvck1hcCA9IHtcbiAgICBcIkdlb3JnaWFuIE9ydGhvZG94XCI6IFwiIzMzRkZBMlwiLCAgLy8gRmx1b3Jlc2NlbnQgR3JlZW5cbiAgICBcIkJ1bGdhcmlhbiBPcnRob2RveFwiOiBcIiNGRjMzRkZcIiwgLy8gRmx1b3Jlc2NlbnQgVmlvbGV0XG4gICAgXCJBcm1lbmlhbiBPcnRob2RveFwiOiBcIiNGRjMzRkZcIiwgIC8vIEZsdW9yZXNjZW50IFZpb2xldFxuICAgIFwiQ29wdGljIE9ydGhvZG94XCI6IFwiIzczNzM3M1wiLCAgICAvLyBHcmV5XG4gICAgXCJHcmVlayBPcnRob2RveFwiOiBcIiM3MzczNzNcIiAgICAgIC8vIEdyZXlcbiAgfTtcbiAgY29uc3QgZGVmYXVsdENvbG9yID0gXCIjNzM3MzczXCI7XG5cbiAgLy8gRFJBVyBFREdFUyAoT3JnYW5pYyBCZXppZXIgQ3VydmVzKVxuICBzdmcuYXBwZW5kKFwiZ1wiKVxuICAgIC5zZWxlY3RBbGwoXCJwYXRoXCIpXG4gICAgLmRhdGEoYWN0aXZlRWRnZXMpXG4gICAgLmpvaW4oXCJwYXRoXCIpXG4gICAgICAuYXR0cihcImZpbGxcIiwgXCJub25lXCIpXG4gICAgICAuYXR0cihcInN0cm9rZVwiLCBcIiM3MzczNzNcIilcbiAgICAgIC5hdHRyKFwic3Ryb2tlLXdpZHRoXCIsIDEuMilcbiAgICAgIC8vIE9wYWNpdHkgYmFzZWQgb24gaG93IGxvbmcgdGhleSBzaGFyZWQgYSBjb25uZWN0aW9uXG4gICAgICAuYXR0cihcInN0cm9rZS1vcGFjaXR5XCIsIGQgPT4gTWF0aC5taW4oMC41LCBNYXRoLm1heCgwLjEsIGQuZHVyYXRpb25fbnVtIC8gMTAwMCkpKSBcbiAgICAgIC5hdHRyKFwiZFwiLCBkID0+IHtcbiAgICAgICAgY29uc3QgcyA9IGFjdGl2ZVNpdGVzLmZpbmQobiA9PiBuLm5hbWUgPT09IGQuc291cmNlKTtcbiAgICAgICAgY29uc3QgdCA9IGFjdGl2ZVNpdGVzLmZpbmQobiA9PiBuLm5hbWUgPT09IGQudGFyZ2V0KTtcbiAgICAgICAgaWYgKCFzIHx8ICF0IHx8ICFzLmxvbiB8fCAhdC5sb24pIHJldHVybiBudWxsO1xuICAgICAgICBcbiAgICAgICAgY29uc3QgcDEgPSBwcm9qZWN0aW9uKFtzLmxvbiwgcy5sYXRdKTtcbiAgICAgICAgY29uc3QgcDIgPSBwcm9qZWN0aW9uKFt0LmxvbiwgdC5sYXRdKTtcbiAgICAgICAgXG4gICAgICAgIGNvbnN0IGR4ID0gcDJbMF0gLSBwMVswXSwgZHkgPSBwMlsxXSAtIHAxWzFdO1xuICAgICAgICAvLyBUaGUgUSAoUXVhZHJhdGljIEJlemllcikgY3JlYXRlcyB0aGUgc3dlZXBpbmcgYXJjXG4gICAgICAgIHJldHVybiBgTSR7cDFbMF19LCR7cDFbMV19IFEke3AxWzBdICsgZHkvM30sJHtwMVsxXSAtIGR4LzN9ICR7cDJbMF19LCR7cDJbMV19YDtcbiAgICAgIH0pO1xuXG4gIC8vIERSQVcgTk9ERVMgKEdsb3dpbmcgQ29uc3RlbGxhdGlvbiBTdGFycylcbiAgc3ZnLmFwcGVuZChcImdcIilcbiAgICAuc2VsZWN0QWxsKFwiY2lyY2xlXCIpXG4gICAgLmRhdGEoYWN0aXZlU2l0ZXMuZmlsdGVyKGQgPT4gZC5sb24gJiYgZC5sYXQpKVxuICAgIC5qb2luKFwiY2lyY2xlXCIpXG4gICAgICAuYXR0cihcImN4XCIsIGQgPT4gcHJvamVjdGlvbihbZC5sb24sIGQubGF0XSlbMF0pXG4gICAgICAuYXR0cihcImN5XCIsIGQgPT4gcHJvamVjdGlvbihbZC5sb24sIGQubGF0XSlbMV0pXG4gICAgICAuYXR0cihcInJcIiwgZCA9PiBNYXRoLm1heCgyLCBNYXRoLnNxcnQoZC5saWZlc3BhbiB8fCAxMDApICogMC4zKSkgLy8gU2l6ZSBieSBsaWZlc3BhblxuICAgICAgLmF0dHIoXCJmaWxsXCIsIGQgPT4gY29sb3JNYXBbZC5vcmRlcl0gfHwgZGVmYXVsdENvbG9yKVxuICAgICAgLmF0dHIoXCJvcGFjaXR5XCIsIDAuOSlcbiAgICAgIC5zdHlsZShcImZpbHRlclwiLCBcInVybCgjZ2xvdylcIilcbiAgICAuYXBwZW5kKFwidGl0bGVcIikgLy8gTmF0aXZlIGhvdmVyIHRvb2x0aXBcbiAgICAgIC50ZXh0KGQgPT4gYCR7ZC5uYW1lfVxcbkZvdW5kZWQ6ICR7ZC5mb3VuZGVkfVxcbkRpc3NvbHZlZDogJHtkLmRpc3NvbHV0aW9uIHx8ICdBY3RpdmUnfVxcbk9yZGVyOiAke2Qub3JkZXJ9XFxuTGlmZXNwYW46ICR7ZC5saWZlc3Bhbn0geWVhcnNgKTtcblxuICAvLyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbiAgLy8gRFJBVyBUSEUgTEVHRU5EIChCb3R0b20gQ2VudGVyKVxuICAvLyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbiAgXG4gIC8vIENhbGN1bGF0ZSBob3cgd2lkZSB0aGUgbGVnZW5kIHdpbGwgYmUgdG8gY2VudGVyIGl0IHBlcmZlY3RseVxuICBjb25zdCBsZWdlbmRTcGFjaW5nID0gMTYwO1xuICBjb25zdCBsZWdlbmRFbnRyaWVzID0gT2JqZWN0LmVudHJpZXMoY29sb3JNYXApO1xuICBjb25zdCB0b3RhbExlZ2VuZFdpZHRoID0gbGVnZW5kRW50cmllcy5sZW5ndGggKiBsZWdlbmRTcGFjaW5nO1xuICBjb25zdCBzdGFydFggPSAodyAvIDIpIC0gKHRvdGFsTGVnZW5kV2lkdGggLyAyKSArIChsZWdlbmRTcGFjaW5nIC8gMik7XG5cbiAgY29uc3QgbGVnZW5kID0gc3ZnLmFwcGVuZChcImdcIilcbiAgICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIGB0cmFuc2xhdGUoJHtzdGFydFh9LCAke2ggLSA1MH0pYCk7IC8vIDUwcHggZnJvbSB0aGUgYm90dG9tXG5cbiAgbGVnZW5kRW50cmllcy5mb3JFYWNoKChbb3JkZXIsIGNvbG9yXSwgaSkgPT4ge1xuICAgICAgY29uc3QgbGVnZW5kSXRlbSA9IGxlZ2VuZC5hcHBlbmQoXCJnXCIpXG4gICAgICAgICAgLmF0dHIoXCJ0cmFuc2Zvcm1cIiwgYHRyYW5zbGF0ZSgke2kgKiBsZWdlbmRTcGFjaW5nfSwgMClgKTtcblxuICAgICAgLy8gTGVnZW5kIEdsb3cgQ2lyY2xlXG4gICAgICBsZWdlbmRJdGVtLmFwcGVuZChcImNpcmNsZVwiKVxuICAgICAgICAgIC5hdHRyKFwiclwiLCA2KVxuICAgICAgICAgIC5hdHRyKFwiZmlsbFwiLCBjb2xvcilcbiAgICAgICAgICAuc3R5bGUoXCJmaWx0ZXJcIiwgXCJ1cmwoI2dsb3cpXCIpO1xuXG4gICAgICAvLyBMZWdlbmQgVGV4dCAoU3dpdGNoZWQgdG8gUm9ib3RvKVxuICAgICAgbGVnZW5kSXRlbS5hcHBlbmQoXCJ0ZXh0XCIpXG4gICAgICAgICAgLnRleHQob3JkZXIpXG4gICAgICAgICAgLmF0dHIoXCJ4XCIsIDE1KSAvLyBTcGFjZSBiZXR3ZWVuIGNpcmNsZSBhbmQgdGV4dFxuICAgICAgICAgIC5hdHRyKFwieVwiLCA0KSAgLy8gVmVydGljYWxseSBhbGlnbiB3aXRoIGNpcmNsZVxuICAgICAgICAgIC5hdHRyKFwiZmlsbFwiLCBcIiM3MzczNzNcIikgLy8gWW91ciBEYW5raSBHcmV5XG4gICAgICAgICAgLnN0eWxlKFwiZm9udC1mYW1pbHlcIiwgXCInUm9ib3RvJywgc2Fucy1zZXJpZlwiKVxuICAgICAgICAgIC5zdHlsZShcImZvbnQtc2l6ZVwiLCBcIjE0cHhcIik7XG4gIH0pO1xuXG4gIC8vIEFwcGVuZCBTVkcgdG8gdGhlIERPTVxuICBjb250YWluZXIuYXBwZW5kQ2hpbGQoc3ZnLm5vZGUoKSk7XG59XG4ifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIDEuIExPQUQgQU5EIENMRUFOIFRIRSBEQVRBXHJcbnNpdGVzUmF3ID0gRmlsZUF0dGFjaG1lbnQoXCJkYXRhL21vbmFzdGljX3NpdGVzLmNzdlwiKS5jc3Yoe3R5cGVkOiB0cnVlfSlcclxuZWRnZXNSYXcgPSBGaWxlQXR0YWNobWVudChcImRhdGEvY29tbXVuaXR5X25ldHdvcmsuY3N2XCIpLmNzdih7dHlwZWQ6IHRydWV9KVxyXG5cclxuLy8gQ2xlYW4gZWRnZXM6IHBhcnNlIFwiMTE1MC0yMDI1XCIgaW50byBhIG51bWVyaWMgZHVyYXRpb24gZm9yIHBhdGggb3BhY2l0eVxyXG5lZGdlc0NsZWFuZWQgPSBlZGdlc1Jhdy5tYXAoZCA9PiB7XHJcbiAgbGV0IGR1cmF0aW9uID0gMDtcclxuICBpZiAoZC5zaGFyZWRfcGVyaW9kICYmIHR5cGVvZiBkLnNoYXJlZF9wZXJpb2QgPT09ICdzdHJpbmcnKSB7XHJcbiAgICBsZXQgcGFydHMgPSBkLnNoYXJlZF9wZXJpb2Quc3BsaXQoJy0nKTtcclxuICAgIGlmKHBhcnRzLmxlbmd0aCA9PT0gMikge1xyXG4gICAgICBkdXJhdGlvbiA9IHBhcnNlSW50KHBhcnRzWzFdKSAtIHBhcnNlSW50KHBhcnRzWzBdKTtcclxuICAgIH1cclxuICB9XHJcbiAgcmV0dXJuIHsgLi4uZCwgZHVyYXRpb25fbnVtOiBkdXJhdGlvbiB9O1xyXG59KVxyXG5cclxuLy8gMi4gU0NST0xMWVRFTExJTkcgTE9HSUMgKE1hcCBzY3JvbGwgcG9zaXRpb24gdG8gWWVhcjogMzAwIEFEIHRvIDIwMjUgQUQpXHJcbm11dGFibGUgY3VycmVudFllYXIgPSAzMDA7XHJcblxyXG51cGRhdGVZZWFyID0ge1xyXG4gIGNvbnN0IGhhbmRsZXIgPSAoKSA9PiB7XHJcbiAgICBjb25zdCBzY3JvbGxZID0gd2luZG93LnNjcm9sbFk7XHJcbiAgICBjb25zdCBtYXhTY3JvbGwgPSBkb2N1bWVudC5ib2R5LnNjcm9sbEhlaWdodCAtIHdpbmRvdy5pbm5lckhlaWdodDtcclxuICAgIGNvbnN0IHNjcm9sbFByb2dyZXNzID0gTWF0aC5tYXgoMCwgTWF0aC5taW4oMSwgc2Nyb2xsWSAvIG1heFNjcm9sbCkpOyAvLyBjbGFtcCAwLTFcclxuICAgIFxyXG4gICAgLy8gTWFwIHByb2dyZXNzIHRvIHllYXJzICgzMDAgdG8gMjAyNSlcclxuICAgIG11dGFibGUgY3VycmVudFllYXIgPSBNYXRoLmZsb29yKDMwMCArIChzY3JvbGxQcm9ncmVzcyAqICgyMDI1IC0gMzAwKSkpO1xyXG4gICAgXHJcbiAgICBjb25zdCBkaXNwbGF5ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJ5ZWFyLWRpc3BsYXlcIik7XHJcbiAgICBpZiAoZGlzcGxheSkgZGlzcGxheS5pbm5lclRleHQgPSBtdXRhYmxlIGN1cnJlbnRZZWFyICsgXCIgQURcIjtcclxuICB9O1xyXG4gIFxyXG4gIHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKFwic2Nyb2xsXCIsIGhhbmRsZXIpO1xyXG4gIGhhbmRsZXIoKTsgLy8gSW5pdFxyXG4gIHJldHVybiAoKSA9PiB3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcihcInNjcm9sbFwiLCBoYW5kbGVyKTtcclxufVxyXG5cclxuLy8gMy4gUkVBQ1RJVkUgREFUQSBGSUxURVJJTkdcclxuLy8gTW9uYXN0ZXJ5IG11c3QgYmUgZm91bmRlZCBiZWZvcmUgY3VycmVudCB5ZWFyLCBBTkQgbm90IHlldCBkaXNzb2x2ZWRcclxuYWN0aXZlU2l0ZXMgPSBzaXRlc1Jhdy5maWx0ZXIoZCA9PiB7XHJcbiAgY29uc3QgZm91bmRlZCA9IGQuZm91bmRlZCB8fCA5OTk5O1xyXG4gIGNvbnN0IGRpc3NvbHZlZCA9IGQuZGlzc29sdXRpb24gfHwgMjAyNTsgLy8gQXNzdW1lIHN0aWxsIGFjdGl2ZSBpZiBudWxsXHJcbiAgcmV0dXJuIGZvdW5kZWQgPD0gY3VycmVudFllYXIgJiYgZGlzc29sdmVkID49IGN1cnJlbnRZZWFyO1xyXG59KVxyXG5cclxuYWN0aXZlU2l0ZUlkcyA9IG5ldyBTZXQoYWN0aXZlU2l0ZXMubWFwKGQgPT4gZC5uYW1lKSlcclxuXHJcbi8vIEVkZ2VzIG9ubHkgZXhpc3QgaWYgQk9USCBzaXN0ZXIgYWJiZXlzIGV4aXN0IGluIHRoaXMgeWVhclxyXG5hY3RpdmVFZGdlcyA9IGVkZ2VzQ2xlYW5lZC5maWx0ZXIoZCA9PiBhY3RpdmVTaXRlSWRzLmhhcyhkLnNvdXJjZSkgJiYgYWN0aXZlU2l0ZUlkcy5oYXMoZC50YXJnZXQpKVxyXG5cclxuLy8gNC4gVEhFIE9SR0FOSUMgRDMgVklTVUFMSVpBVElPTlxyXG5jaGFydCA9IHtcclxuICAvLyBDbGVhciBwcmV2aW91cyByZW5kZXJzIChpbXBvcnRhbnQgZm9yIE9KUyByZWFjdGl2aXR5KVxyXG4gIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwidmlzLWNvbnRhaW5lclwiKTtcclxuICBpZiAoY29udGFpbmVyKSBjb250YWluZXIuaW5uZXJIVE1MID0gXCJcIjtcclxuICBcclxuICBjb25zdCB3ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJ2aXMtY29udGFpbmVyXCIpLmNsaWVudFdpZHRoIHx8IDEwMDA7IFxyXG4gIGNvbnN0IGggPSB3aW5kb3cuaW5uZXJIZWlnaHQ7XHJcbiAgXHJcbiAgY29uc3Qgc3ZnID0gZDMuY3JlYXRlKFwic3ZnXCIpXHJcbiAgICAgIC5hdHRyKFwid2lkdGhcIiwgdylcclxuICAgICAgLmF0dHIoXCJoZWlnaHRcIiwgaClcclxuICAgICAgLnN0eWxlKFwiYmFja2dyb3VuZFwiLCBcIiMxMjEyMTJcIik7XHJcblxyXG4gIC8vIENyZWF0ZSBhIGdsb3cgZmlsdGVyIGZvciB0aGUgbm9kZXNcclxuICBjb25zdCBkZWZzID0gc3ZnLmFwcGVuZChcImRlZnNcIik7XHJcbiAgY29uc3QgZmlsdGVyID0gZGVmcy5hcHBlbmQoXCJmaWx0ZXJcIikuYXR0cihcImlkXCIsIFwiZ2xvd1wiKTtcclxuICBmaWx0ZXIuYXBwZW5kKFwiZmVHYXVzc2lhbkJsdXJcIikuYXR0cihcInN0ZERldmlhdGlvblwiLCBcIjIuNVwiKS5hdHRyKFwicmVzdWx0XCIsIFwiY29sb3JlZEJsdXJcIik7XHJcbiAgY29uc3QgZmVNZXJnZSA9IGZpbHRlci5hcHBlbmQoXCJmZU1lcmdlXCIpO1xyXG4gIGZlTWVyZ2UuYXBwZW5kKFwiZmVNZXJnZU5vZGVcIikuYXR0cihcImluXCIsIFwiY29sb3JlZEJsdXJcIik7XHJcbiAgZmVNZXJnZS5hcHBlbmQoXCJmZU1lcmdlTm9kZVwiKS5hdHRyKFwiaW5cIiwgXCJTb3VyY2VHcmFwaGljXCIpO1xyXG5cclxuICAvLyBHZW9ncmFwaGljIFByb2plY3Rpb24gKFdpdGggc2FmZXR5IGZpbHRlciBmb3IgbWlzc2luZyBsYXQvbG9uKVxyXG4gIGNvbnN0IHZhbGlkU2l0ZXMgPSBzaXRlc1Jhdy5maWx0ZXIoZCA9PiBkICYmIGQubG9uICE9IG51bGwgJiYgZC5sYXQgIT0gbnVsbCk7XHJcbiAgXHJcbiAgY29uc3QgcHJvamVjdGlvbiA9IGQzLmdlb01lcmNhdG9yKClcclxuICAgICAgLmZpdFNpemUoW3cgKiAwLjg1LCBoICogMC44NV0sIHtcclxuICAgICAgICB0eXBlOiBcIkZlYXR1cmVDb2xsZWN0aW9uXCIsIFxyXG4gICAgICAgIGZlYXR1cmVzOiB2YWxpZFNpdGVzLm1hcChkID0+ICh7XHJcbiAgICAgICAgICB0eXBlOiBcIkZlYXR1cmVcIiwgXHJcbiAgICAgICAgICBnZW9tZXRyeToge3R5cGU6IFwiUG9pbnRcIiwgY29vcmRpbmF0ZXM6IFtkLmxvbiwgZC5sYXRdfVxyXG4gICAgICAgIH0pKVxyXG4gICAgICB9KTtcclxuXHJcbiAgLy8gRGFua2kgQnJhbmQgQ29sb3JzIG1hcHBlZCB0byB5b3VyIHJlYWwgZGF0YSdzIHNwZWNpZmljIE9ydGhvZG94IG9yZGVyc1xyXG4gIGNvbnN0IGNvbG9yTWFwID0ge1xyXG4gICAgXCJHZW9yZ2lhbiBPcnRob2RveFwiOiBcIiMzM0ZGQTJcIiwgIC8vIEZsdW9yZXNjZW50IEdyZWVuXHJcbiAgICBcIkJ1bGdhcmlhbiBPcnRob2RveFwiOiBcIiNGRjMzRkZcIiwgLy8gRmx1b3Jlc2NlbnQgVmlvbGV0XHJcbiAgICBcIkFybWVuaWFuIE9ydGhvZG94XCI6IFwiI0ZGMzNGRlwiLCAgLy8gRmx1b3Jlc2NlbnQgVmlvbGV0XHJcbiAgICBcIkNvcHRpYyBPcnRob2RveFwiOiBcIiM3MzczNzNcIiwgICAgLy8gR3JleVxyXG4gICAgXCJHcmVlayBPcnRob2RveFwiOiBcIiM3MzczNzNcIiAgICAgIC8vIEdyZXlcclxuICB9O1xyXG4gIGNvbnN0IGRlZmF1bHRDb2xvciA9IFwiIzczNzM3M1wiO1xyXG5cclxuICAvLyBEUkFXIEVER0VTIChPcmdhbmljIEJlemllciBDdXJ2ZXMpXHJcbiAgc3ZnLmFwcGVuZChcImdcIilcclxuICAgIC5zZWxlY3RBbGwoXCJwYXRoXCIpXHJcbiAgICAuZGF0YShhY3RpdmVFZGdlcylcclxuICAgIC5qb2luKFwicGF0aFwiKVxyXG4gICAgICAuYXR0cihcImZpbGxcIiwgXCJub25lXCIpXHJcbiAgICAgIC5hdHRyKFwic3Ryb2tlXCIsIFwiIzczNzM3M1wiKVxyXG4gICAgICAuYXR0cihcInN0cm9rZS13aWR0aFwiLCAxLjIpXHJcbiAgICAgIC8vIE9wYWNpdHkgYmFzZWQgb24gaG93IGxvbmcgdGhleSBzaGFyZWQgYSBjb25uZWN0aW9uXHJcbiAgICAgIC5hdHRyKFwic3Ryb2tlLW9wYWNpdHlcIiwgZCA9PiBNYXRoLm1pbigwLjUsIE1hdGgubWF4KDAuMSwgZC5kdXJhdGlvbl9udW0gLyAxMDAwKSkpIFxyXG4gICAgICAuYXR0cihcImRcIiwgZCA9PiB7XHJcbiAgICAgICAgY29uc3QgcyA9IGFjdGl2ZVNpdGVzLmZpbmQobiA9PiBuLm5hbWUgPT09IGQuc291cmNlKTtcclxuICAgICAgICBjb25zdCB0ID0gYWN0aXZlU2l0ZXMuZmluZChuID0+IG4ubmFtZSA9PT0gZC50YXJnZXQpO1xyXG4gICAgICAgIGlmICghcyB8fCAhdCB8fCAhcy5sb24gfHwgIXQubG9uKSByZXR1cm4gbnVsbDtcclxuICAgICAgICBcclxuICAgICAgICBjb25zdCBwMSA9IHByb2plY3Rpb24oW3MubG9uLCBzLmxhdF0pO1xyXG4gICAgICAgIGNvbnN0IHAyID0gcHJvamVjdGlvbihbdC5sb24sIHQubGF0XSk7XHJcbiAgICAgICAgXHJcbiAgICAgICAgY29uc3QgZHggPSBwMlswXSAtIHAxWzBdLCBkeSA9IHAyWzFdIC0gcDFbMV07XHJcbiAgICAgICAgLy8gVGhlIFEgKFF1YWRyYXRpYyBCZXppZXIpIGNyZWF0ZXMgdGhlIHN3ZWVwaW5nIGFyY1xyXG4gICAgICAgIHJldHVybiBgTSR7cDFbMF19LCR7cDFbMV19IFEke3AxWzBdICsgZHkvM30sJHtwMVsxXSAtIGR4LzN9ICR7cDJbMF19LCR7cDJbMV19YDtcclxuICAgICAgfSk7XHJcblxyXG4gIC8vIERSQVcgTk9ERVMgKEdsb3dpbmcgQ29uc3RlbGxhdGlvbiBTdGFycylcclxuICBzdmcuYXBwZW5kKFwiZ1wiKVxyXG4gICAgLnNlbGVjdEFsbChcImNpcmNsZVwiKVxyXG4gICAgLmRhdGEoYWN0aXZlU2l0ZXMuZmlsdGVyKGQgPT4gZC5sb24gJiYgZC5sYXQpKVxyXG4gICAgLmpvaW4oXCJjaXJjbGVcIilcclxuICAgICAgLmF0dHIoXCJjeFwiLCBkID0+IHByb2plY3Rpb24oW2QubG9uLCBkLmxhdF0pWzBdKVxyXG4gICAgICAuYXR0cihcImN5XCIsIGQgPT4gcHJvamVjdGlvbihbZC5sb24sIGQubGF0XSlbMV0pXHJcbiAgICAgIC5hdHRyKFwiclwiLCBkID0+IE1hdGgubWF4KDIsIE1hdGguc3FydChkLmxpZmVzcGFuIHx8IDEwMCkgKiAwLjMpKSAvLyBTaXplIGJ5IGxpZmVzcGFuXHJcbiAgICAgIC5hdHRyKFwiZmlsbFwiLCBkID0+IGNvbG9yTWFwW2Qub3JkZXJdIHx8IGRlZmF1bHRDb2xvcilcclxuICAgICAgLmF0dHIoXCJvcGFjaXR5XCIsIDAuOSlcclxuICAgICAgLnN0eWxlKFwiZmlsdGVyXCIsIFwidXJsKCNnbG93KVwiKVxyXG4gICAgLmFwcGVuZChcInRpdGxlXCIpIC8vIE5hdGl2ZSBob3ZlciB0b29sdGlwXHJcbiAgICAgIC50ZXh0KGQgPT4gYCR7ZC5uYW1lfVxcbkZvdW5kZWQ6ICR7ZC5mb3VuZGVkfVxcbkRpc3NvbHZlZDogJHtkLmRpc3NvbHV0aW9uIHx8ICdBY3RpdmUnfVxcbk9yZGVyOiAke2Qub3JkZXJ9XFxuTGlmZXNwYW46ICR7ZC5saWZlc3Bhbn0geWVhcnNgKTtcclxuXHJcbiAgLy8gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XHJcbiAgLy8gRFJBVyBUSEUgTEVHRU5EIChCb3R0b20gQ2VudGVyKVxyXG4gIC8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxyXG4gIFxyXG4gIC8vIENhbGN1bGF0ZSBob3cgd2lkZSB0aGUgbGVnZW5kIHdpbGwgYmUgdG8gY2VudGVyIGl0IHBlcmZlY3RseVxyXG4gIGNvbnN0IGxlZ2VuZFNwYWNpbmcgPSAxNjA7XHJcbiAgY29uc3QgbGVnZW5kRW50cmllcyA9IE9iamVjdC5lbnRyaWVzKGNvbG9yTWFwKTtcclxuICBjb25zdCB0b3RhbExlZ2VuZFdpZHRoID0gbGVnZW5kRW50cmllcy5sZW5ndGggKiBsZWdlbmRTcGFjaW5nO1xyXG4gIGNvbnN0IHN0YXJ0WCA9ICh3IC8gMikgLSAodG90YWxMZWdlbmRXaWR0aCAvIDIpICsgKGxlZ2VuZFNwYWNpbmcgLyAyKTtcclxuXHJcbiAgY29uc3QgbGVnZW5kID0gc3ZnLmFwcGVuZChcImdcIilcclxuICAgICAgLmF0dHIoXCJ0cmFuc2Zvcm1cIiwgYHRyYW5zbGF0ZSgke3N0YXJ0WH0sICR7aCAtIDUwfSlgKTsgLy8gNTBweCBmcm9tIHRoZSBib3R0b21cclxuXHJcbiAgbGVnZW5kRW50cmllcy5mb3JFYWNoKChbb3JkZXIsIGNvbG9yXSwgaSkgPT4ge1xyXG4gICAgICBjb25zdCBsZWdlbmRJdGVtID0gbGVnZW5kLmFwcGVuZChcImdcIilcclxuICAgICAgICAgIC5hdHRyKFwidHJhbnNmb3JtXCIsIGB0cmFuc2xhdGUoJHtpICogbGVnZW5kU3BhY2luZ30sIDApYCk7XHJcblxyXG4gICAgICAvLyBMZWdlbmQgR2xvdyBDaXJjbGVcclxuICAgICAgbGVnZW5kSXRlbS5hcHBlbmQoXCJjaXJjbGVcIilcclxuICAgICAgICAgIC5hdHRyKFwiclwiLCA2KVxyXG4gICAgICAgICAgLmF0dHIoXCJmaWxsXCIsIGNvbG9yKVxyXG4gICAgICAgICAgLnN0eWxlKFwiZmlsdGVyXCIsIFwidXJsKCNnbG93KVwiKTtcclxuXHJcbiAgICAgIC8vIExlZ2VuZCBUZXh0IChTd2l0Y2hlZCB0byBSb2JvdG8pXHJcbiAgICAgIGxlZ2VuZEl0ZW0uYXBwZW5kKFwidGV4dFwiKVxyXG4gICAgICAgICAgLnRleHQob3JkZXIpXHJcbiAgICAgICAgICAuYXR0cihcInhcIiwgMTUpIC8vIFNwYWNlIGJldHdlZW4gY2lyY2xlIGFuZCB0ZXh0XHJcbiAgICAgICAgICAuYXR0cihcInlcIiwgNCkgIC8vIFZlcnRpY2FsbHkgYWxpZ24gd2l0aCBjaXJjbGVcclxuICAgICAgICAgIC5hdHRyKFwiZmlsbFwiLCBcIiM3MzczNzNcIikgLy8gWW91ciBEYW5raSBHcmV5XHJcbiAgICAgICAgICAuc3R5bGUoXCJmb250LWZhbWlseVwiLCBcIidSb2JvdG8nLCBzYW5zLXNlcmlmXCIpXHJcbiAgICAgICAgICAuc3R5bGUoXCJmb250LXNpemVcIiwgXCIxNHB4XCIpO1xyXG4gIH0pO1xyXG5cclxuICAvLyBBcHBlbmQgU1ZHIHRvIHRoZSBET01cclxuICBjb250YWluZXIuYXBwZW5kQ2hpbGQoc3ZnLm5vZGUoKSk7XHJcbn1cclxuIn1dfQ==
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -728,294 +723,287 @@ window._ojs.selfContained = false;
 window._ojs.runtime.interpretFromScriptTags();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
         } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
+          window.location.href = sourceUrl;
         }
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
         }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/adeline-hub\.github\.io\/medieval_monastic_mapping\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1023,161 +1011,185 @@ window._ojs.runtime.interpretFromScriptTags();
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 </div> <!-- /content -->
 
 
