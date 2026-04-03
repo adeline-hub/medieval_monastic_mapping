@@ -85,19 +85,19 @@ def main():
             name=o, fill='toself'
         ))
     fig_1 = apply_danki_layout(fig_1, "1.1 Average ESG Profile by Top Orders", is_polar=True)
-    fig_1.write_html(VIZ_DIR / "p1_esg_radar.html")
+    fig_1.write_html(VIZ_DIR / "p1_esg_radar.html", include_plotlyjs="cdn")
 
     # 1.2 Scatter: Environmental Score vs Lifespan
     fig_2 = px.scatter(df, x="environmental", y="lifespan", color="order",
                        title="1.2 Environmental Stewardship vs Longevity", color_discrete_sequence=[C_VERT, C_VIOLET, C_GREY, "#FFF"])
     fig_2 = apply_danki_layout(fig_2, "1.2 Environmental Score vs Institutional Lifespan")
-    fig_2.write_html(VIZ_DIR / "p1_env_scatter.html")
+    fig_2.write_html(VIZ_DIR / "p1_env_scatter.html", include_plotlyjs="cdn")
 
     # 1.3 Boxplot: ESG composite by Social Extraction
     fig_3 = px.box(df.dropna(subset=['social_class']), x="social_class", y="composite", color="social_class",
                    color_discrete_sequence=[C_VIOLET, C_VERT, C_GREY])
     fig_3 = apply_danki_layout(fig_3, "1.3 ESG Performance by Social Class of Founders")
-    fig_3.write_html(VIZ_DIR / "p1_social_box.html")
+    fig_3.write_html(VIZ_DIR / "p1_social_box.html", include_plotlyjs="cdn")
 
 
     # =========================================================
@@ -109,7 +109,7 @@ def main():
     fig_4 = px.density_mapbox(df, lat='lat', lon='lon', z='lifespan', radius=15,
                               color_continuous_scale=DANKI_SCALE, mapbox_style="carto-darkmatter")
     fig_4 = apply_danki_layout(fig_4, "2.1 Geopolitical Density & Lifespan Hotspots", is_map=True)
-    fig_4.write_html(VIZ_DIR / "p2_geo_heatmap.html")
+    fig_4.write_html(VIZ_DIR / "p2_geo_heatmap.html", include_plotlyjs="cdn")
 
     # 2.2 Network Sister Communities
     fig_5 = go.Figure()
@@ -122,7 +122,7 @@ def main():
     fig_5.add_trace(go.Scattermap(lat=sites['lat'], lon=sites['lon'], mode='markers', marker=dict(size=4, color=C_VERT), showlegend=False))
     fig_5.update_layout(map=dict(style="carto-darkmatter", zoom=3, center=dict(lat=45, lon=15)))
     fig_5 = apply_danki_layout(fig_5, "2.2 Institutional Network Connectivity", is_map=True)
-    fig_5.write_html(VIZ_DIR / "p2_network_map.html")
+    fig_5.write_html(VIZ_DIR / "p2_network_map.html", include_plotlyjs="cdn")
 
     # 2.3 Dissolution Causes (Bar)
     causes = df['dissolution_cause'].value_counts().head(8).reset_index()
@@ -130,7 +130,7 @@ def main():
     fig_6 = px.bar(causes, x='Count', y='Cause', orientation='h', color_discrete_sequence=[C_VIOLET])
     fig_6.update_layout(yaxis={'categoryorder':'total ascending'})
     fig_6 = apply_danki_layout(fig_6, "2.3 Primary Geopolitical Threats (Dissolution Causes)")
-    fig_6.write_html(VIZ_DIR / "p2_dissolution_bar.html")
+    fig_6.write_html(VIZ_DIR / "p2_dissolution_bar.html", include_plotlyjs="cdn")
 
 
     # =========================================================
@@ -144,20 +144,20 @@ def main():
     fig_7 = px.treemap(tree_df, path=[px.Constant("Economies"), 'order', 'economic_activities'], color='composite', color_continuous_scale=DANKI_SCALE)
     fig_7 = apply_danki_layout(fig_7, "3.1 Economic Hierarchy (Colored by ESG)")
     fig_7.update_traces(marker=dict(line=dict(color=C_BG, width=2)))
-    fig_7.write_html(VIZ_DIR / "p3_econ_treemap.html")
+    fig_7.write_html(VIZ_DIR / "p3_econ_treemap.html", include_plotlyjs="cdn")
 
     # 3.2 Revenue Timeline Line Chart
     econ_line = econ.groupby('year')['revenue_index'].mean().reset_index()
     fig_8 = px.line(econ_line, x='year', y='revenue_index', markers=True, color_discrete_sequence=[C_VERT])
     fig_8 = apply_danki_layout(fig_8, "3.2 Macro Average Revenue Index over Time")
-    fig_8.write_html(VIZ_DIR / "p3_revenue_timeline.html")
+    fig_8.write_html(VIZ_DIR / "p3_revenue_timeline.html", include_plotlyjs="cdn")
 
     # 3.3 Pie Chart: Revenue Sources
     pie_data = econ['primary_revenue_source'].value_counts().reset_index().head(5)
     pie_data.columns = ['Source', 'Count']
     fig_9 = px.pie(pie_data, names='Source', values='Count', color_discrete_sequence=[C_VERT, C_VIOLET, C_GREY, "#FFF", "#444"])
     fig_9 = apply_danki_layout(fig_9, "3.3 Major Revenue Sources")
-    fig_9.write_html(VIZ_DIR / "p3_revenue_pie.html")
+    fig_9.write_html(VIZ_DIR / "p3_revenue_pie.html", include_plotlyjs="cdn")
 
 
     # =========================================================
@@ -170,18 +170,18 @@ def main():
                                   values='name', index='gender', columns='century_founded', aggfunc='count', fill_value=0)
     fig_10 = px.imshow(gender_pivot, text_auto=True, color_continuous_scale=DANKI_SCALE)
     fig_10 = apply_danki_layout(fig_10, "4.1 Gender Demographics: Foundations by Century")
-    fig_10.write_html(VIZ_DIR / "p4_gender_heatmap.html")
+    fig_10.write_html(VIZ_DIR / "p4_gender_heatmap.html", include_plotlyjs="cdn")
 
     # 4.2 Gender vs Lifespan
     fig_11 = px.box(df[df['gender'].isin(['Male', 'Female', 'Double'])], x='gender', y='lifespan', color='gender', color_discrete_sequence=[C_VERT, C_VIOLET, C_GREY])
     fig_11 = apply_danki_layout(fig_11, "4.2 Institutional Lifespan by Gender")
-    fig_11.write_html(VIZ_DIR / "p4_gender_lifespan.html")
+    fig_11.write_html(VIZ_DIR / "p4_gender_lifespan.html", include_plotlyjs="cdn")
 
     # 4.3 Governance Scores vs Century
     gov_time = df.groupby('century_founded')['governance'].mean().reset_index()
     fig_12 = px.bar(gov_time, x='century_founded', y='governance', color_discrete_sequence=[C_VIOLET])
     fig_12 = apply_danki_layout(fig_12, "4.3 Evolution of Average Governance Score by Century")
-    fig_12.write_html(VIZ_DIR / "p4_gov_timeline.html")
+    fig_12.write_html(VIZ_DIR / "p4_gov_timeline.html", include_plotlyjs="cdn")
 
 
      # =========================================================

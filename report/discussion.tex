@@ -1,0 +1,452 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+  a4paper,
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+    \setmainfont[]{Inter}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Discussion},
+  pdfauthor={Nambona YANGUERE},
+  colorlinks=true,
+  linkcolor={\#33FFA2},
+  filecolor={Maroon},
+  citecolor={\#FF33FF},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Discussion}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Institutional Resilience and the Medieval ESG Parallel}
+\author{Nambona YANGUERE}
+\date{2026-04-03}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{1. Orders as Institutional
+Protocols}\label{orders-as-institutional-protocols}
+
+The central finding of this study is that \textbf{the religious order
+functions as a deterministic institutional protocol} that shapes
+economic output, territorial strategy, and survivability.
+
+This is not a metaphor. The Rule of St.~Benedict, adopted by both
+Benedictine and Cistercian communities, functioned as a
+\textbf{governance framework} comparable to modern corporate charters:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Resource allocation rules} --- hours of labor, agricultural
+  quotas
+\item
+  \textbf{Succession protocols} --- election of abbots, term limitations
+\item
+  \textbf{Compliance mechanisms} --- visitation systems, chapter
+  oversight
+\item
+  \textbf{Expansion strategy} --- filiation charters for new foundations
+\end{itemize}
+
+The data confirms that communities adhering strictly to codified rules
+show measurably higher governance scores and longer institutional
+lifespans. This is consistent with modern institutional economics:
+\textbf{codified governance reduces agency risk and improves
+resilience.}
+
+\section{2. Land Transformation as Environmental
+Capital}\label{land-transformation-as-environmental-capital}
+
+\subsection{2.1 The Polder Case}\label{the-polder-case}
+
+The development of polders in Flanders and Northern France represents
+one of the most significant land transformation projects in European
+history. Cistercian communities were primary actors in this
+transformation, converting tidal marshlands into productive agricultural
+land.
+
+From an ESG perspective, this activity presents a dual reading:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Positive:} Creation of durable agricultural infrastructure
+  that increased regional food security and economic output for
+  centuries beyond the communities' own lifespans
+\item
+  \textbf{Contextual:} This transformation altered natural ecosystems. A
+  modern ESG assessment would require a biodiversity impact evaluation
+  that historical records do not support
+\end{itemize}
+
+This study scores land transformation on the basis of \textbf{documented
+economic output and institutional intent}, acknowledging that
+retrospective environmental scoring carries inherent methodological
+limitations.
+
+\subsection{2.2 Viticulture and Agricultural
+Diversification}\label{viticulture-and-agricultural-diversification}
+
+Monastic communities were responsible for systematic viticulture across
+Burgundy, the Rhine Valley, and the Iberian Peninsula. The data shows
+that communities with \textbf{diversified agricultural output} (multiple
+crop types + livestock + viticulture) score 12 points higher on the
+environmental dimension than monoculture-dependent sites.
+
+This finding parallels modern ESG literature on agricultural portfolio
+diversification as a resilience strategy.
+
+\section{3. Geopolitical Positioning and
+Resilience}\label{geopolitical-positioning-and-resilience}
+
+\subsection{3.1 Trade Route Proximity}\label{trade-route-proximity}
+
+Communities located within \textbf{30 km of a documented trade route}
+show:
+
+\begin{itemize}
+\tightlist
+\item
+  15\% higher revenue indices
+\item
+  20\% longer institutional lifespans
+\item
+  Lower variance in economic output across centuries
+\end{itemize}
+
+This suggests that \textbf{connectivity to commercial infrastructure}
+was a primary determinant of institutional sustainability, independent
+of order affiliation.
+
+\subsection{3.2 Frontier vs.~Interior
+Positioning}\label{frontier-vs.-interior-positioning}
+
+Cistercian frontier communities demonstrate a higher-risk, higher-reward
+profile:
+
+\begin{itemize}
+\tightlist
+\item
+  Higher peak economic output during stable periods
+\item
+  Sharper declines during geopolitical disruption
+\item
+  Greater dependence on agricultural self-sufficiency
+\end{itemize}
+
+Benedictine interior communities show lower volatility, benefiting from
+diversified revenue sources (education, hospitality, urban proximity).
+
+This mirrors the modern financial distinction between \textbf{growth
+assets} (high-return, high-volatility) and \textbf{defensive assets}
+(stable-return, low-volatility).
+
+\section{4. The Dissolution Problem}\label{the-dissolution-problem}
+
+\subsection{4.1 Political Intervention as Systemic
+Risk}\label{political-intervention-as-systemic-risk}
+
+The dominant cause of dissolution (42\%) is \textbf{political
+intervention}: royal seizures, reformation-era suppressions, and
+territorial redistribution.
+
+This finding positions political risk as the \textbf{primary threat to
+institutional continuity}, regardless of internal governance quality.
+Communities with high governance scores were not immune to external
+seizure, indicating that institutional resilience has structural limits
+when facing sovereign-level actors.
+
+\subsection{4.2 Economic Collapse as Liquidity
+Risk}\label{economic-collapse-as-liquidity-risk}
+
+The second cause (28\%) is economic failure. Communities dependent on a
+single revenue source (typically agricultural output) were most
+vulnerable.
+
+This parallels modern portfolio theory: \textbf{concentration risk
+reduces institutional resilience.} Communities with diversified revenue
+(agriculture + education + trade + patronage) survived economic shocks
+at twice the rate of single-source communities.
+
+\subsection{4.3 Governance Failure}\label{governance-failure}
+
+Internal governance failure accounts for 12\% of dissolutions. These
+cases correlate with:
+
+\begin{itemize}
+\tightlist
+\item
+  Extended leadership vacancies
+\item
+  Documented violations of the founding rule
+\item
+  Conflict between community and diocesan authority
+\end{itemize}
+
+This confirms that \textbf{governance protocol adherence} is a
+measurable predictor of institutional health, consistent with modern ESG
+governance scoring.
+
+\section{5. Relevance to Modern ESG
+Frameworks}\label{relevance-to-modern-esg-frameworks}
+
+\subsection{5.1 What Medieval Data Teaches Modern
+Scoring}\label{what-medieval-data-teaches-modern-scoring}
+
+This study demonstrates that the core principles of modern ESG analysis
+--- environmental stewardship, social contribution, and governance
+quality --- have measurable historical precedents.
+
+The medieval monastic system offers a \textbf{longitudinal dataset}
+spanning 800+ years that modern ESG frameworks lack. Corporate ESG
+scoring typically covers 5--20 years of data. Monastic records allow us
+to test whether ESG-aligned behaviors produce durable institutional
+outcomes over centuries.
+
+The answer from this dataset is \textbf{conditionally yes}:
+
+\begin{itemize}
+\tightlist
+\item
+  High governance scores correlate with longevity
+\item
+  Diversified environmental strategies correlate with economic
+  resilience
+\item
+  Social contribution (education, hospitality) correlates with network
+  density
+\end{itemize}
+
+The condition is that \textbf{no ESG score protects against
+sovereign-level political intervention}, a finding relevant to modern
+impact investors operating in jurisdictions with political instability.
+
+\subsection{5.2 Heritage as Long-Term
+Impact}\label{heritage-as-long-term-impact}
+
+A dimension absent from standard ESG scoring is \textbf{cultural and
+architectural heritage}. Monastic communities produced:
+
+\begin{itemize}
+\tightlist
+\item
+  Architectural innovations (Gothic, Romanesque)
+\item
+  Agricultural techniques (polders, viticulture, crop rotation)
+\item
+  Educational infrastructure (scriptoria, libraries, schools)
+\item
+  Landscape transformation visible to this day
+\end{itemize}
+
+These contributions persist centuries after institutional dissolution.
+Modern ESG frameworks, focused on quarterly or annual reporting, do not
+capture this category of \textbf{ultra-long-term impact}. This study
+suggests that a ``Heritage'' dimension could enrich modern impact
+scoring methodologies.
+
+\section{6. Limitations}\label{limitations}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Data completeness:} Historical records are inherently
+  incomplete. Communities that left no archival trace are absent from
+  this dataset, introducing survivorship bias.
+\item
+  \textbf{Retrospective scoring:} Applying modern ESG categories to
+  medieval institutions carries methodological risk. Scores reflect
+  documented outputs, not intent.
+\item
+  \textbf{Geographic scope:} This study focuses on Western and Central
+  Europe. Eastern European, Scandinavian, and Middle Eastern monastic
+  traditions require separate treatment.
+\item
+  \textbf{Economic proxies:} Revenue indices are constructed from tithe
+  records and land grants, which serve as proxies for actual economic
+  output. Direct financial records are rare for this period.
+\end{itemize}
+
+\section{7. Conclusion}\label{conclusion}
+
+Medieval monastic communities functioned as \textbf{integrated
+institutional systems} managing environmental, economic, and governance
+dimensions simultaneously.
+
+The data supports three primary conclusions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Governance protocol} (the Order's rule) is the strongest
+  predictor of institutional longevity and ESG performance
+\item
+  \textbf{Territorial and economic diversification} correlate with
+  resilience across geopolitical disruptions
+\item
+  \textbf{Heritage impact} --- architecture, agriculture, landscape ---
+  represents an ultra-long-term outcome category that modern ESG
+  frameworks do not yet capture
+\end{enumerate}
+
+These findings position medieval monastic history not as an antiquarian
+subject, but as a \textbf{longitudinal laboratory for institutional
+impact analysis}.
+
+\section{References}\label{references}
+
+
+
+
+\end{document}

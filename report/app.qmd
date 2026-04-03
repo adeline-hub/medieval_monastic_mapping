@@ -8,19 +8,22 @@ format:
     toc: false
 ---
 
+```{ojs}
 //| echo: false
 
 // ============================================
 // 1. DATA LOADING
 // ============================================
 
-communities = FileAttachment("../data/processed/monastic_sites.csv").csv({typed: true})
-orders = FileAttachment("../data/processed/orders_metadata.csv").csv({typed: true})
-esg = FileAttachment("../data/processed/esg_metrics.csv").csv({typed: true})
-network = FileAttachment("../data/processed/community_network.csv").csv({typed: true})
-economic = FileAttachment("../data/processed/economic_indicators.csv").csv({typed: true})
+communities = FileAttachment("data/monastic_sites.csv").csv({typed: true})
+orders = FileAttachment("data/orders_metadata.csv").csv({typed: true})
+esg = FileAttachment("data/esg_metrics.csv").csv({typed: true})
+network = FileAttachment("data/community_network.csv").csv({typed: true})
+economic = FileAttachment("data/economic_indicators.csv").csv({typed: true})
+```
 
-
+```{ojs}
+//| echo: false
 // ============================================
 // 2. COMMUNITY SELECTOR
 // ============================================
@@ -33,56 +36,86 @@ viewof selectedCommunity = Inputs.select(
     unique: true
   }
 )
+```
 
-
+```{ojs}
+//| echo: false
 // ============================================
-// 3. FILTERED DATA
+// 3. FILTERED DATA (With safe fallbacks)
 // ============================================
 
-profile = communities.find(d => d.name === selectedCommunity)
-communityESG = esg.find(d => d.name === selectedCommunity)
-communityOrder = orders.find(d => d.order === profile.order)
+profile = communities.find(d => d.name === selectedCommunity) || {}
+communityESG = esg.find(d => d.name === selectedCommunity) || {composite: "N/A", environmental: 0, social: 0, governance: 0}
+communityOrder = orders.find(d => d.order === profile.order) || {order: profile.order, governance: "N/A", economic_model: "N/A", territorial_strategy: "N/A", order_founded: "N/A"}
 communityEcon = economic.filter(d => d.name === selectedCommunity)
 sisters = network.filter(d => d.source === selectedCommunity || d.target === selectedCommunity)
+```
 
+<div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
 
+<div>
+```{ojs}
+//| echo: false
 // ============================================
 // 4. PROFILE CARD
 // ============================================
 
 html`
 <div class="profile-card">
-  <h2>${profile.name}</h2>
-  <table>
-    <tr><td><strong>Order</strong></td><td>${profile.order}</td></tr>
-    <tr><td><strong>Founded</strong></td><td>${profile.founded}</td></tr>
-    <tr><td><strong>Location</strong></td><td>${profile.location}</td></tr>
-    <tr><td><strong>Status</strong></td><td>${profile.status}</td></tr>
-    <tr><td><strong>Dissolution Cause</strong></td><td>${profile.dissolution_cause || "N/A"}</td></tr>
+  <h2 style="color: #33FFA2; margin-top: 0;">${profile.name}</h2>
+  <table style="width: 100%; border-collapse: collapse;">
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Order</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${profile.order || "N/A"}</td></tr>
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Founded</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${profile.founded || "N/A"}</td></tr>
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Location</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${profile.location || "Unknown"}, ${profile.country || ""}</td></tr>
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Status</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${profile.status || "N/A"}</td></tr>
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Dissolution Cause</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${profile.dissolution_cause || "Active / Unknown"}</td></tr>
   </table>
 </div>
 `
+```
 
+```{ojs}
+//| echo: false
+// ============================================
+// 6. ORDER PROTOCOL CARD
+// ============================================
 
+html`
+<div class="order-card" style="margin-top: 20px;">
+  <h3 style="color: #FF33FF; margin-top: 0;">Order: ${communityOrder.order}</h3>
+  <table style="width: 100%; border-collapse: collapse;">
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Governance</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${communityOrder.governance}</td></tr>
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Economic Model</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${communityOrder.economic_model}</td></tr>
+    <tr><td style="color: #737373; border-bottom: 1px solid #333; padding: 8px 0;"><strong>Territorial Strat.</strong></td><td style="border-bottom: 1px solid #333; padding: 8px 0;">${communityOrder.territorial_strategy}</td></tr>
+  </table>
+</div>
+`
+```
+</div>
+
+<div>
+```{ojs}
+//| echo: false
 // ============================================
 // 5. ESG RADAR CHART
 // ============================================
-
 {
-  const dimensions = ["environmental", "social", "governance"];
-  const scores = dimensions.map(d => communityESG[d]);
   const band = communityESG.composite >= 75 ? "🟢 Dark Green"
              : communityESG.composite >= 55 ? "🟢 Green"
              : communityESG.composite >= 35 ? "🟡 Amber"
+             : communityESG.composite === "N/A" ? "⚪ N/A" 
              : "🔴 Red";
 
   return html`
     <div class="esg-panel">
-      <h3>ESG Score: ${communityESG.composite}/100 — ${band}</h3>
+      <h3 style="color: white; margin-top: 0;">ESG Score: <span style="color: #33FFA2;">${communityESG.composite}/100</span> — ${band}</h3>
     </div>
   `;
 }
+```
 
+```{ojs}
+//| echo: false
 Plot.plot({
   projection: "identity",
   marks: [
@@ -92,68 +125,33 @@ Plot.plot({
         r: [communityESG.environmental, communityESG.social, communityESG.governance, communityESG.environmental][i]
       })),
       {
-        x: d => d.r * Math.cos(d.angle),
-        y: d => d.r * Math.sin(d.angle),
+        x: d => (d.r || 0) * Math.cos(d.angle),
+        y: d => (d.r || 0) * Math.sin(d.angle),
         stroke: "#33FFA2",
         strokeWidth: 2
       }
     )
   ],
   width: 300,
-  height: 300
+  height: 300,
+  style: { background: "transparent" }
 })
-
-
-// ============================================
-// 6. ORDER PROTOCOL CARD
-// ============================================
-
-html`
-<div class="order-card">
-  <h3>Order: ${communityOrder.order}</h3>
-  <table>
-    <tr><td><strong>Governance Model</strong></td><td>${communityOrder.governance}</td></tr>
-    <tr><td><strong>Economic Model</strong></td><td>${communityOrder.economic_model}</td></tr>
-    <tr><td><strong>Territorial Strategy</strong></td><td>${communityOrder.territorial_strategy}</td></tr>
-    <tr><td><strong>Founded</strong></td><td>${communityOrder.order_founded}</td></tr>
-  </table>
+```
 </div>
-`
 
-
-// ============================================
-// 7. SISTER COMMUNITIES
-// ============================================
-
-html`
-<div class="sisters-panel">
-  <h3>Sister Communities (${sisters.length})</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Community</th>
-        <th>Distance (km)</th>
-        <th>Shared Period</th>
-      </tr>
-    </thead>
-    <tbody>
-      ${sisters.map(d => html`
-        <tr>
-          <td>${d.source === selectedCommunity ? d.target : d.source}</td>
-          <td>${d.distance_km}</td>
-          <td>${d.shared_period}</td>
-        </tr>
-      `)}
-    </tbody>
-  </table>
 </div>
-`
 
-
+```{ojs}
+//| echo: false
 // ============================================
 // 8. ECONOMIC TIMELINE
 // ============================================
 
+html`<h3 style="color: #33FFA2; margin-top: 40px;">Economic Output Timeline</h3>`
+```
+
+```{ojs}
+//| echo: false
 Plot.plot({
   marks: [
     Plot.lineY(communityEcon, {
@@ -170,30 +168,44 @@ Plot.plot({
     })
   ],
   x: {label: "Year"},
-  y: {label: "Revenue Index"},
-  width: 600,
+  y: {label: "Revenue Index", domain: [0, 100]},
+  width: 800,
   height: 300,
   style: {
     background: "transparent",
-    color: "#121212"
+    color: "white" // Fixed from #121212 so text is visible on dark bg
   }
 })
+```
 
-
+```{ojs}
+//| echo: false
 // ============================================
-// 9. HISTORICAL TIMELINE
+// 7. SISTER COMMUNITIES
 // ============================================
 
 html`
-<div class="timeline-panel">
-  <h3>Historical Timeline</h3>
-  <ul>
-    <li><strong>${profile.founded}</strong> — Foundation</li>
-    <li><strong>${profile.peak_year || "N/A"}</strong> — Peak Influence</li>
-    <li><strong>${profile.decline_year || "N/A"}</strong> — Decline</li>
-    <li><strong>${profile.dissolution_year || "Active"}</strong> — ${profile.status === "Active" ? "Still Active" : "Dissolution"}</li>
-  </ul>
-  <p><strong>Architectural Legacy:</strong> ${profile.architectural_legacy || "No data"}</p>
-  <p><strong>Cultural Legacy:</strong> ${profile.cultural_legacy || "No data"}</p>
+<div class="sisters-panel" style="margin-top: 40px;">
+  <h3 style="color: #FF33FF;">Sister Communities within 150km (${sisters.length})</h3>
+  <table style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th style="color: #737373; text-align: left; padding: 8px 0; border-bottom: 2px solid #33FFA2;">Community</th>
+        <th style="color: #737373; text-align: left; padding: 8px 0; border-bottom: 2px solid #33FFA2;">Distance (km)</th>
+        <th style="color: #737373; text-align: left; padding: 8px 0; border-bottom: 2px solid #33FFA2;">Shared Active Period</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${sisters.slice(0, 10).map(d => html`
+        <tr>
+          <td style="padding: 8px 0; border-bottom: 1px solid #333;">${d.source === selectedCommunity ? d.target : d.source}</td>
+          <td style="padding: 8px 0; border-bottom: 1px solid #333;">${d.distance_km}</td>
+          <td style="padding: 8px 0; border-bottom: 1px solid #333;">${d.shared_period}</td>
+        </tr>
+      `)}
+    </tbody>
+  </table>
+  <p style="font-size: 12px; color: #737373; margin-top: 10px;">* Showing up to 10 nearest connections.</p>
 </div>
 `
+```

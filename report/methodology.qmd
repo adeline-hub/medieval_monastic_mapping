@@ -9,9 +9,6 @@ format:
     toc: true
     toc-depth: 3
     code-fold: true
-  pdf:
-    toc: true
-    number-sections: true
 bibliography: references.bib
 ---
 
@@ -55,7 +52,7 @@ Data was collected through a combination of:
 - **Manual verification** against published academic sources
   to validate AI-extracted entities
 
-```
+```{=python}
 #| echo: true
 #| label: code-ner
 #| code-summary: "NER Extraction Example"
@@ -109,7 +106,7 @@ across several dimensions:
 
 After normalization, five structured datasets were produced:
 
-```
+```{=python}
 #| echo: true
 #| label: code-schema
 #| code-summary: "Dataset Schemas"

@@ -71,7 +71,7 @@ def main():
         title="Pearson Correlation Matrix: ESG, Lifespan & Geography"
     )
     fig_corr.update_layout(paper_bgcolor=C_BG, plot_bgcolor=C_BG, font=dict(color=C_WHITE))
-    fig_corr.write_html(EDA_OUTPUT_DIR / "eda_1_correlation_matrix.html")
+    fig_corr.write_html(EDA_OUTPUT_DIR / "eda_1_correlation_matrix.html", include_plotlyjs="cdn")
     print(" [✓] eda_1_correlation_matrix.html")
 
     # =========================================================
@@ -84,7 +84,7 @@ def main():
         color_discrete_sequence=[C_VERT, C_VIOLET, C_GREY, "#FFFFFF", "#AAAAAA"]
     )
     fig_scatter = apply_danki_layout(fig_scatter, "Bivariate Analysis: ESG Score vs Lifespan")
-    fig_scatter.write_html(EDA_OUTPUT_DIR / "eda_2_scatter_esg_lifespan.html")
+    fig_scatter.write_html(EDA_OUTPUT_DIR / "eda_2_scatter_esg_lifespan.html", include_plotlyjs="cdn")
     print(" [✓] eda_2_scatter_esg_lifespan.html")
 
     # =========================================================
@@ -98,7 +98,7 @@ def main():
         title="Pivot Chart: Volume of Foundations by Order across Centuries"
     )
     fig_pivot.update_layout(paper_bgcolor=C_BG, plot_bgcolor=C_BG, font=dict(color=C_WHITE))
-    fig_pivot.write_html(EDA_OUTPUT_DIR / "eda_3_pivot_foundations.html")
+    fig_pivot.write_html(EDA_OUTPUT_DIR / "eda_3_pivot_foundations.html", include_plotlyjs="cdn")
     print(" [✓] eda_3_pivot_foundations.html")
 
     # =========================================================
@@ -113,7 +113,7 @@ def main():
     )
     fig_diss.update_layout(yaxis={'categoryorder':'total ascending'})
     fig_diss = apply_danki_layout(fig_diss, "Top Causes of Dissolution")
-    fig_diss.write_html(EDA_OUTPUT_DIR / "eda_4_dissolution_causes.html")
+    fig_diss.write_html(EDA_OUTPUT_DIR / "eda_4_dissolution_causes.html", include_plotlyjs="cdn")
     print(" [✓] eda_4_dissolution_causes.html")
 
 
@@ -129,7 +129,7 @@ def main():
         title="Economic Hierarchy: Activities by Order (Colored by ESG)"
     )
     fig_tree.update_layout(paper_bgcolor=C_BG, font=dict(color=C_WHITE))
-    fig_tree.write_html(EDA_OUTPUT_DIR / "eda_5_treemap_economy.html")
+    fig_tree.write_html(EDA_OUTPUT_DIR / "eda_5_treemap_economy.html", include_plotlyjs="cdn")
     print(" [✓] eda_5_treemap_economy.html")
 
     # =========================================================
@@ -140,7 +140,7 @@ def main():
                        title="Macro Trend: Average Lifespan by Century Founded")
     fig_line.update_traces(line=dict(color=C_VERT, width=3), marker=dict(color=C_VIOLET, size=8))
     fig_line = apply_danki_layout(fig_line, "Macro Trend: Average Lifespan by Century")
-    fig_line.write_html(EDA_OUTPUT_DIR / "eda_6_timeline.html")
+    fig_line.write_html(EDA_OUTPUT_DIR / "eda_6_timeline.html", include_plotlyjs="cdn")
     print(" [✓] eda_6_timeline.html")
 
     # =========================================================
@@ -154,7 +154,7 @@ def main():
     )
     fig_bar.update_layout(yaxis={'categoryorder':'total ascending'})
     fig_bar = apply_danki_layout(fig_bar, "Top 10 Longest Surviving Communities")
-    fig_bar.write_html(EDA_OUTPUT_DIR / "eda_7_top10_bar.html")
+    fig_bar.write_html(EDA_OUTPUT_DIR / "eda_7_top10_bar.html", include_plotlyjs="cdn")
     print(" [✓] eda_7_top10_bar.html")
 
     # =========================================================
@@ -169,7 +169,7 @@ def main():
         cells=dict(values=[stats_df.order, stats_df.Count, stats_df.Avg_Lifespan, stats_df.Avg_ESG], fill_color=C_BG, font=dict(color=C_WHITE), line_color=C_GREY)
     )])
     fig_tab1.update_layout(title="Summary Stats: Top 5 Orders", paper_bgcolor=C_BG, font=dict(family="Inter"))
-    fig_tab1.write_html(EDA_OUTPUT_DIR / "eda_8_table_stats.html")
+    fig_tab1.write_html(EDA_OUTPUT_DIR / "eda_8_table_stats.html", include_plotlyjs="cdn")
     print(" [✓] eda_8_table_stats.html")
 
 
@@ -200,7 +200,7 @@ def main():
         paper_bgcolor=C_BG, 
         margin=dict(l=0, r=0, t=0, b=0)
     )
-    fig_net.write_html(EDA_OUTPUT_DIR / "ui_10_network_map.html")
+    fig_net.write_html(EDA_OUTPUT_DIR / "ui_10_network_map.html", include_plotlyjs="cdn")
     print(" [✓] ui_10_network_map.html")
 
     # =========================================================

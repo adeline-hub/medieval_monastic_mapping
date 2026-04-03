@@ -9,9 +9,6 @@ format:
     toc: true
     toc-depth: 3
     code-fold: true
-  pdf:
-    toc: true
-    number-sections: true
 bibliography: references.bib
 ---
 ## 1. Ecosystem and ESG Performance

@@ -8,9 +8,6 @@ format:
     css: report-style.css
     toc: true
     toc-depth: 3
-  pdf:
-    toc: true
-    number-sections: true
 bibliography: references.bib
 ---
 
