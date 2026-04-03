@@ -1,0 +1,163 @@
+[
+  {
+    "objectID": "methodology.html",
+    "href": "methodology.html",
+    "title": "Methodology",
+    "section": "",
+    "text": "This study aims to quantify the institutional, economic, and geopolitical impact of medieval monastic communities across Europe using modern data engineering and ESG analysis frameworks.\nThe research addresses three questions:\n\nHow did different religious orders (as institutional protocols) influence economic output and territorial development?\nWhat is the correlation between governance structure and institutional resilience across geopolitical disruptions?\nCan we quantify the environmental and cultural legacy of monastic land management using ESG metrics?"
+  },
+  {
+    "objectID": "methodology.html#research-objective",
+    "href": "methodology.html#research-objective",
+    "title": "Methodology",
+    "section": "",
+    "text": "This study aims to quantify the institutional, economic, and geopolitical impact of medieval monastic communities across Europe using modern data engineering and ESG analysis frameworks.\nThe research addresses three questions:\n\nHow did different religious orders (as institutional protocols) influence economic output and territorial development?\nWhat is the correlation between governance structure and institutional resilience across geopolitical disruptions?\nCan we quantify the environmental and cultural legacy of monastic land management using ESG metrics?"
+  },
+  {
+    "objectID": "methodology.html#data-acquisition",
+    "href": "methodology.html#data-acquisition",
+    "title": "Methodology",
+    "section": "2. Data Acquisition",
+    "text": "2. Data Acquisition\n\n2.1 Sources\n\n\n\n\n\n\n\n\nSource\nType\nContent\n\n\n\n\nEcclesiastical registers\nArchival\nFoundation dates, order affiliation, patronage\n\n\nMedieval cartularies\nArchival\nLand grants, tithes, economic transactions\n\n\nArchaeological surveys\nGeospatial\nSite coordinates, architectural remains\n\n\nTrade route databases\nGeospatial\nMedieval commercial corridors\n\n\nAcademic publications\nSecondary\nInstitutional history, regional economics\n\n\n\n\n\n2.2 Collection Method\nData was collected through a combination of:\n\nAutomated web scraping (Python / BeautifulSoup) targeting digitized archival databases and open-access historical repositories\nLLM-assisted Named Entity Recognition (NER) to extract structured entities (founders, orders, dates, land grants) from unstructured historical text in Latin and Old French\nManual verification against published academic sources to validate AI-extracted entities"
+  },
+  {
+    "objectID": "methodology.html#data-normalization",
+    "href": "methodology.html#data-normalization",
+    "title": "Methodology",
+    "section": "3. Data Normalization",
+    "text": "3. Data Normalization\n\n3.1 Standardization\nRaw data from heterogeneous sources required normalization across several dimensions:\n\n\n\n\n\n\n\n\nDimension\nMethod\nTool\n\n\n\n\nDates\nConversion to ISO 8601 from Latin calendar references\nPython (dateutil)\n\n\nLocations\nGeocoding historical place names to modern coordinates\nGeoPandas / Nominatim\n\n\nEconomic values\nMin-Max scaling of tithes and land grants\nPandas / Scikit-learn\n\n\nOrder names\nMapping variant spellings to canonical order names\nCustom lookup table\n\n\nText language\nTranslation of Latin/Old French excerpts\nLLM-assisted\n\n\n\n\n\n3.2 Dataset Structure\nAfter normalization, five structured datasets were produced:"
+  },
+  {
+    "objectID": "methodology.html#analytical-framework",
+    "href": "methodology.html#analytical-framework",
+    "title": "Methodology",
+    "section": "4. Analytical Framework",
+    "text": "4. Analytical Framework\n\n4.1 ESG Scoring\nEach community receives a composite score (0–100) across three dimensions:\n\n\n\n\n\n\n\n\nDimension\nWeight\nIndicators\n\n\n\n\nEnvironmental\n35%\nLand reclamation, agricultural diversification, water management\n\n\nSocial\n35%\nEducation, hospitality, community employment, cultural production\n\n\nGovernance\n30%\nRule adherence, institutional continuity, succession protocols\n\n\n\n\n\n4.2 Geopolitical Analysis\nCommunities are analyzed against:\n\nProximity to trade routes (km to nearest documented corridor)\nBorder zone classification (frontier vs. interior positioning)\nPolitical stability index of the surrounding region per century\nOrder-level territorial strategy (documented expansion protocols)\n\n\n\n4.3 Network Analysis\nSister communities are linked using:\n\nSame order affiliation within a defined radius (150 km)\nDocumented dependency relationships (mother/daughter houses)\nShared patronage networks (same founding family or bishop)\n\n\n\n4.4 Temporal Analysis\nEconomic and institutional data is segmented into century-level periods to identify:\n\nGrowth phases correlated with political stability\nDecline phases correlated with geopolitical disruption\nResilience patterns linked to governance protocols"
+  },
+  {
+    "objectID": "methodology.html#reproducibility",
+    "href": "methodology.html#reproducibility",
+    "title": "Methodology",
+    "section": "5. Reproducibility",
+    "text": "5. Reproducibility\nAll code is available in the project repository:\n\nsrc/scraping.py — Data acquisition pipeline\nsrc/ner_extraction.py — AI entity extraction\nsrc/normalization.py — Cleaning and scaling\nsrc/esg_scoring.py — ESG dimension calculations\nsrc/network.py — Sister community proximity\nsrc/viz.py — Visualization functions\n\nRaw data is excluded from the repository (.gitignore) to respect archival licensing. Processed datasets are included in data/processed/ for full reproducibility of the analysis."
+  },
+  {
+    "objectID": "methodology.html#references",
+    "href": "methodology.html#references",
+    "title": "Methodology",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "discussion.html",
+    "href": "discussion.html",
+    "title": "Discussion",
+    "section": "",
+    "text": "The central finding of this study is that the religious order functions as a deterministic institutional protocol that shapes economic output, territorial strategy, and survivability.\nThis is not a metaphor. The Rule of St. Benedict, adopted by both Benedictine and Cistercian communities, functioned as a governance framework comparable to modern corporate charters:\n\nResource allocation rules — hours of labor, agricultural quotas\nSuccession protocols — election of abbots, term limitations\nCompliance mechanisms — visitation systems, chapter oversight\nExpansion strategy — filiation charters for new foundations\n\nThe data confirms that communities adhering strictly to codified rules show measurably higher governance scores and longer institutional lifespans. This is consistent with modern institutional economics: codified governance reduces agency risk and improves resilience."
+  },
+  {
+    "objectID": "discussion.html#orders-as-institutional-protocols",
+    "href": "discussion.html#orders-as-institutional-protocols",
+    "title": "Discussion",
+    "section": "",
+    "text": "The central finding of this study is that the religious order functions as a deterministic institutional protocol that shapes economic output, territorial strategy, and survivability.\nThis is not a metaphor. The Rule of St. Benedict, adopted by both Benedictine and Cistercian communities, functioned as a governance framework comparable to modern corporate charters:\n\nResource allocation rules — hours of labor, agricultural quotas\nSuccession protocols — election of abbots, term limitations\nCompliance mechanisms — visitation systems, chapter oversight\nExpansion strategy — filiation charters for new foundations\n\nThe data confirms that communities adhering strictly to codified rules show measurably higher governance scores and longer institutional lifespans. This is consistent with modern institutional economics: codified governance reduces agency risk and improves resilience."
+  },
+  {
+    "objectID": "discussion.html#land-transformation-as-environmental-capital",
+    "href": "discussion.html#land-transformation-as-environmental-capital",
+    "title": "Discussion",
+    "section": "2. Land Transformation as Environmental Capital",
+    "text": "2. Land Transformation as Environmental Capital\n\n2.1 The Polder Case\nThe development of polders in Flanders and Northern France represents one of the most significant land transformation projects in European history. Cistercian communities were primary actors in this transformation, converting tidal marshlands into productive agricultural land.\nFrom an ESG perspective, this activity presents a dual reading:\n\nPositive: Creation of durable agricultural infrastructure that increased regional food security and economic output for centuries beyond the communities’ own lifespans\nContextual: This transformation altered natural ecosystems. A modern ESG assessment would require a biodiversity impact evaluation that historical records do not support\n\nThis study scores land transformation on the basis of documented economic output and institutional intent, acknowledging that retrospective environmental scoring carries inherent methodological limitations.\n\n\n2.2 Viticulture and Agricultural Diversification\nMonastic communities were responsible for systematic viticulture across Burgundy, the Rhine Valley, and the Iberian Peninsula. The data shows that communities with diversified agricultural output (multiple crop types + livestock + viticulture) score 12 points higher on the environmental dimension than monoculture-dependent sites.\nThis finding parallels modern ESG literature on agricultural portfolio diversification as a resilience strategy."
+  },
+  {
+    "objectID": "discussion.html#geopolitical-positioning-and-resilience",
+    "href": "discussion.html#geopolitical-positioning-and-resilience",
+    "title": "Discussion",
+    "section": "3. Geopolitical Positioning and Resilience",
+    "text": "3. Geopolitical Positioning and Resilience\n\n3.1 Trade Route Proximity\nCommunities located within 30 km of a documented trade route show:\n\n15% higher revenue indices\n20% longer institutional lifespans\nLower variance in economic output across centuries\n\nThis suggests that connectivity to commercial infrastructure was a primary determinant of institutional sustainability, independent of order affiliation.\n\n\n3.2 Frontier vs. Interior Positioning\nCistercian frontier communities demonstrate a higher-risk, higher-reward profile:\n\nHigher peak economic output during stable periods\nSharper declines during geopolitical disruption\nGreater dependence on agricultural self-sufficiency\n\nBenedictine interior communities show lower volatility, benefiting from diversified revenue sources (education, hospitality, urban proximity).\nThis mirrors the modern financial distinction between growth assets (high-return, high-volatility) and defensive assets (stable-return, low-volatility)."
+  },
+  {
+    "objectID": "discussion.html#the-dissolution-problem",
+    "href": "discussion.html#the-dissolution-problem",
+    "title": "Discussion",
+    "section": "4. The Dissolution Problem",
+    "text": "4. The Dissolution Problem\n\n4.1 Political Intervention as Systemic Risk\nThe dominant cause of dissolution (42%) is political intervention: royal seizures, reformation-era suppressions, and territorial redistribution.\nThis finding positions political risk as the primary threat to institutional continuity, regardless of internal governance quality. Communities with high governance scores were not immune to external seizure, indicating that institutional resilience has structural limits when facing sovereign-level actors.\n\n\n4.2 Economic Collapse as Liquidity Risk\nThe second cause (28%) is economic failure. Communities dependent on a single revenue source (typically agricultural output) were most vulnerable.\nThis parallels modern portfolio theory: concentration risk reduces institutional resilience. Communities with diversified revenue (agriculture + education + trade + patronage) survived economic shocks at twice the rate of single-source communities.\n\n\n4.3 Governance Failure\nInternal governance failure accounts for 12% of dissolutions. These cases correlate with:\n\nExtended leadership vacancies\nDocumented violations of the founding rule\nConflict between community and diocesan authority\n\nThis confirms that governance protocol adherence is a measurable predictor of institutional health, consistent with modern ESG governance scoring."
+  },
+  {
+    "objectID": "discussion.html#relevance-to-modern-esg-frameworks",
+    "href": "discussion.html#relevance-to-modern-esg-frameworks",
+    "title": "Discussion",
+    "section": "5. Relevance to Modern ESG Frameworks",
+    "text": "5. Relevance to Modern ESG Frameworks\n\n5.1 What Medieval Data Teaches Modern Scoring\nThis study demonstrates that the core principles of modern ESG analysis — environmental stewardship, social contribution, and governance quality — have measurable historical precedents.\nThe medieval monastic system offers a longitudinal dataset spanning 800+ years that modern ESG frameworks lack. Corporate ESG scoring typically covers 5–20 years of data. Monastic records allow us to test whether ESG-aligned behaviors produce durable institutional outcomes over centuries.\nThe answer from this dataset is conditionally yes:\n\nHigh governance scores correlate with longevity\nDiversified environmental strategies correlate with economic resilience\nSocial contribution (education, hospitality) correlates with network density\n\nThe condition is that no ESG score protects against sovereign-level political intervention, a finding relevant to modern impact investors operating in jurisdictions with political instability.\n\n\n5.2 Heritage as Long-Term Impact\nA dimension absent from standard ESG scoring is cultural and architectural heritage. Monastic communities produced:\n\nArchitectural innovations (Gothic, Romanesque)\nAgricultural techniques (polders, viticulture, crop rotation)\nEducational infrastructure (scriptoria, libraries, schools)\nLandscape transformation visible to this day\n\nThese contributions persist centuries after institutional dissolution. Modern ESG frameworks, focused on quarterly or annual reporting, do not capture this category of ultra-long-term impact. This study suggests that a “Heritage” dimension could enrich modern impact scoring methodologies."
+  },
+  {
+    "objectID": "discussion.html#limitations",
+    "href": "discussion.html#limitations",
+    "title": "Discussion",
+    "section": "6. Limitations",
+    "text": "6. Limitations\n\nData completeness: Historical records are inherently incomplete. Communities that left no archival trace are absent from this dataset, introducing survivorship bias.\nRetrospective scoring: Applying modern ESG categories to medieval institutions carries methodological risk. Scores reflect documented outputs, not intent.\nGeographic scope: This study focuses on Western and Central Europe. Eastern European, Scandinavian, and Middle Eastern monastic traditions require separate treatment.\nEconomic proxies: Revenue indices are constructed from tithe records and land grants, which serve as proxies for actual economic output. Direct financial records are rare for this period."
+  },
+  {
+    "objectID": "discussion.html#conclusion",
+    "href": "discussion.html#conclusion",
+    "title": "Discussion",
+    "section": "7. Conclusion",
+    "text": "7. Conclusion\nMedieval monastic communities functioned as integrated institutional systems managing environmental, economic, and governance dimensions simultaneously.\nThe data supports three primary conclusions:\n\nGovernance protocol (the Order’s rule) is the strongest predictor of institutional longevity and ESG performance\nTerritorial and economic diversification correlate with resilience across geopolitical disruptions\nHeritage impact — architecture, agriculture, landscape — represents an ultra-long-term outcome category that modern ESG frameworks do not yet capture\n\nThese findings position medieval monastic history not as an antiquarian subject, but as a longitudinal laboratory for institutional impact analysis."
+  },
+  {
+    "objectID": "discussion.html#references",
+    "href": "discussion.html#references",
+    "title": "Discussion",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "app.html",
+    "href": "app.html",
+    "title": "Community Explorer",
+    "section": "",
+    "text": "Code\ncommunities = FileAttachment(\"data/monastic_sites.csv\").csv({typed: true})\norders = FileAttachment(\"data/orders_metadata.csv\").csv({typed: true})\nesg = FileAttachment(\"data/esg_metrics.csv\").csv({typed: true})\nnetwork = FileAttachment(\"data/community_network.csv\").csv({typed: true})\neconomic = FileAttachment(\"data/economic_indicators.csv\").csv({typed: true})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n// ============================================\n// 2. COMMUNITY SELECTOR\n// ============================================\n\nviewof selectedCommunity = Inputs.select(\n  communities.map(d =&gt; d.name),\n  {\n    label: \"Select a Community\",\n    sort: true,\n    unique: true\n  }\n)\n\n\n\n\n\n\n\n\n\nCode\nprofile = communities.find(d =&gt; d.name === selectedCommunity) || {}\ncommunityESG = esg.find(d =&gt; d.name === selectedCommunity) || {composite: \"N/A\", environmental: 0, social: 0, governance: 0}\ncommunityOrder = orders.find(d =&gt; d.order === profile.order) || {order: profile.order, governance: \"N/A\", economic_model: \"N/A\", territorial_strategy: \"N/A\", order_founded: \"N/A\"}\ncommunityEcon = economic.filter(d =&gt; d.name === selectedCommunity)\nsisters = network.filter(d =&gt; d.source === selectedCommunity || d.target === selectedCommunity)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n// ============================================\n// 4. PROFILE CARD\n// ============================================\n\nhtml`\n&lt;div class=\"profile-card\"&gt;\n  &lt;h2 style=\"color: #33FFA2; margin-top: 0;\"&gt;${profile.name}&lt;/h2&gt;\n  &lt;table style=\"width: 100%; border-collapse: collapse;\"&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Order&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${profile.order || \"N/A\"}&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Founded&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${profile.founded || \"N/A\"}&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Location&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${profile.location || \"Unknown\"}, ${profile.country || \"\"}&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Status&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${profile.status || \"N/A\"}&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Dissolution Cause&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${profile.dissolution_cause || \"Active / Unknown\"}&lt;/td&gt;&lt;/tr&gt;\n  &lt;/table&gt;\n&lt;/div&gt;\n`\n\n\n\n\n\n\n\n\n\nCode\n// ============================================\n// 6. ORDER PROTOCOL CARD\n// ============================================\n\nhtml`\n&lt;div class=\"order-card\" style=\"margin-top: 20px;\"&gt;\n  &lt;h3 style=\"color: #FF33FF; margin-top: 0;\"&gt;Order: ${communityOrder.order}&lt;/h3&gt;\n  &lt;table style=\"width: 100%; border-collapse: collapse;\"&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Governance&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${communityOrder.governance}&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Economic Model&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${communityOrder.economic_model}&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr&gt;&lt;td style=\"color: #737373; border-bottom: 1px solid #333; padding: 8px 0;\"&gt;&lt;strong&gt;Territorial Strat.&lt;/strong&gt;&lt;/td&gt;&lt;td style=\"border-bottom: 1px solid #333; padding: 8px 0;\"&gt;${communityOrder.territorial_strategy}&lt;/td&gt;&lt;/tr&gt;\n  &lt;/table&gt;\n&lt;/div&gt;\n`\n\n\n\n\n\n\n\n\n\n\n\nCode\n// ============================================\n// 5. ESG RADAR CHART\n// ============================================\n{\n  const band = communityESG.composite &gt;= 75 ? \"🟢 Dark Green\"\n             : communityESG.composite &gt;= 55 ? \"🟢 Green\"\n             : communityESG.composite &gt;= 35 ? \"🟡 Amber\"\n             : communityESG.composite === \"N/A\" ? \"⚪ N/A\" \n             : \"🔴 Red\";\n\n  return html`\n    &lt;div class=\"esg-panel\"&gt;\n      &lt;h3 style=\"color: white; margin-top: 0;\"&gt;ESG Score: &lt;span style=\"color: #33FFA2;\"&gt;${communityESG.composite}/100&lt;/span&gt; — ${band}&lt;/h3&gt;\n    &lt;/div&gt;\n  `;\n}\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({\n  projection: \"identity\",\n  marks: [\n    Plot.line(\n      [\"Environmental\", \"Social\", \"Governance\", \"Environmental\"].map((d, i) =&gt; ({\n        angle: (i / 3) * 2 * Math.PI,\n        r: [communityESG.environmental, communityESG.social, communityESG.governance, communityESG.environmental][i]\n      })),\n      {\n        x: d =&gt; (d.r || 0) * Math.cos(d.angle),\n        y: d =&gt; (d.r || 0) * Math.sin(d.angle),\n        stroke: \"#33FFA2\",\n        strokeWidth: 2\n      }\n    )\n  ],\n  width: 300,\n  height: 300,\n  style: { background: \"transparent\" }\n})\n\n\n\n\n\n\n\n\n\n\n\nCode\n// ============================================\n// 8. ECONOMIC TIMELINE\n// ============================================\n\nhtml`&lt;h3 style=\"color: #33FFA2; margin-top: 40px;\"&gt;Economic Output Timeline&lt;/h3&gt;`\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({\n  marks: [\n    Plot.lineY(communityEcon, {\n      x: \"year\",\n      y: \"revenue_index\",\n      stroke: \"#FF33FF\",\n      strokeWidth: 2\n    }),\n    Plot.dot(communityEcon, {\n      x: \"year\",\n      y: \"revenue_index\",\n      fill: \"#33FFA2\",\n      r: 4\n    })\n  ],\n  x: {label: \"Year\"},\n  y: {label: \"Revenue Index\", domain: [0, 100]},\n  width: 800,\n  height: 300,\n  style: {\n    background: \"transparent\",\n    color: \"white\" // Fixed from #121212 so text is visible on dark bg\n  }\n})\n\n\n\n\n\n\n\n\n\nCode\n// ============================================\n// 7. SISTER COMMUNITIES\n// ============================================\n\nhtml`\n&lt;div class=\"sisters-panel\" style=\"margin-top: 40px;\"&gt;\n  &lt;h3 style=\"color: #FF33FF;\"&gt;Sister Communities within 150km (${sisters.length})&lt;/h3&gt;\n  &lt;table style=\"width: 100%; border-collapse: collapse;\"&gt;\n    &lt;thead&gt;\n      &lt;tr&gt;\n        &lt;th style=\"color: #737373; text-align: left; padding: 8px 0; border-bottom: 2px solid #33FFA2;\"&gt;Community&lt;/th&gt;\n        &lt;th style=\"color: #737373; text-align: left; padding: 8px 0; border-bottom: 2px solid #33FFA2;\"&gt;Distance (km)&lt;/th&gt;\n        &lt;th style=\"color: #737373; text-align: left; padding: 8px 0; border-bottom: 2px solid #33FFA2;\"&gt;Shared Active Period&lt;/th&gt;\n      &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n      ${sisters.slice(0, 10).map(d =&gt; html`\n        &lt;tr&gt;\n          &lt;td style=\"padding: 8px 0; border-bottom: 1px solid #333;\"&gt;${d.source === selectedCommunity ? d.target : d.source}&lt;/td&gt;\n          &lt;td style=\"padding: 8px 0; border-bottom: 1px solid #333;\"&gt;${d.distance_km}&lt;/td&gt;\n          &lt;td style=\"padding: 8px 0; border-bottom: 1px solid #333;\"&gt;${d.shared_period}&lt;/td&gt;\n        &lt;/tr&gt;\n      `)}\n    &lt;/tbody&gt;\n  &lt;/table&gt;\n  &lt;p style=\"font-size: 12px; color: #737373; margin-top: 10px;\"&gt;* Showing up to 10 nearest connections.&lt;/p&gt;\n&lt;/div&gt;\n`"
+  },
+  {
+    "objectID": "findings.html",
+    "href": "findings.html",
+    "title": "Findings",
+    "section": "",
+    "text": "The data reveals strong correlations between institutional protocols, social extraction, and overall ESG performance across centuries.\n\n\n\nDimension-level findings:\n\nEnvironmental: Cistercian communities lead (+12 points above mean), driven by documented hydraulic engineering and agricultural diversification.\nSocial: Benedictine communities score highest, reflecting their documented role in education, hospitality, and manuscript preservation.\nGovernance: Cistercian and Benedictine orders score comparably, both benefiting from codified rules that ensured institutional continuity across leadership transitions."
+  },
+  {
+    "objectID": "findings.html#ecosystem-and-esg-performance",
+    "href": "findings.html#ecosystem-and-esg-performance",
+    "title": "Findings",
+    "section": "",
+    "text": "The data reveals strong correlations between institutional protocols, social extraction, and overall ESG performance across centuries.\n\n\n\nDimension-level findings:\n\nEnvironmental: Cistercian communities lead (+12 points above mean), driven by documented hydraulic engineering and agricultural diversification.\nSocial: Benedictine communities score highest, reflecting their documented role in education, hospitality, and manuscript preservation.\nGovernance: Cistercian and Benedictine orders score comparably, both benefiting from codified rules that ensured institutional continuity across leadership transitions."
+  },
+  {
+    "objectID": "findings.html#territory-geopolitics",
+    "href": "findings.html#territory-geopolitics",
+    "title": "Findings",
+    "section": "2. Territory & Geopolitics",
+    "text": "2. Territory & Geopolitics\n\n2.1 Spatial Density & Hotspots\n\nKey observations:\n\nHighest density corridors follow the Rhine-Rhône axis and the Northern French plains.\nSecondary clusters appear along the Camino de Santiago corridor and the Po Valley.\nIsolated nodes in Scandinavia and Eastern Europe correspond to late-period missionary foundations.\nAnd we notice a strong and ancient network of worship plaves in Sudan, Egypt, and Ethiopia.\nCrusades let a print to the Levant.\n\n\n\n2.2 Institutional Network Connectivity\n\nNetwork insights:\n\nAverage sister community distance: 87 km.\nCistercian networks show tighter clustering, consistent with their documented filiation system (mother-daughter houses).\nCommunities with 5+ sister connections show 40% higher composite ESG scores, suggesting network density correlates with resilience.\n\n\n\n2.3 Primary Threats (Dissolution Causes)\n\nSurvivability findings:\n\nPolitical intervention (42%) — royal seizures, reformations.\nEconomic collapse (28%) — revenue decline, failed harvests.\nConflict (18%) — wars, raids, territorial disputes.\nInternal governance failure (12%) — leadership disputes, rule violations."
+  },
+  {
+    "objectID": "findings.html#economy-revenue-models",
+    "href": "findings.html#economy-revenue-models",
+    "title": "Findings",
+    "section": "3. Economy & Revenue Models",
+    "text": "3. Economy & Revenue Models\n\n3.1 Economic Hierarchy by Order\n\n\n\n3.2 Macro Revenue Index Over Time\n\nEconomic trajectory:\n\nGrowth phase (900–1250): Steady increase across all orders, correlating with political consolidation and trade route expansion.\nPeak (1200–1280): Cistercian economic output peaks earliest, driven by large-scale agricultural investment.\nDisruption (1300–1400): Sharp decline across all orders, correlating with the Great Famine (1315), Black Death (1347), and Hundred Years War.\n\n\n\n3.3 Major Revenue Sources"
+  },
+  {
+    "objectID": "findings.html#demographics-governance",
+    "href": "findings.html#demographics-governance",
+    "title": "Findings",
+    "section": "4. Demographics & Governance",
+    "text": "4. Demographics & Governance\n\n4.1 Gender Demographics across Centuries\n\n\n\n4.2 Institutional Lifespan by Gender"
+  },
+  {
+    "objectID": "findings.html#visual-heritage",
+    "href": "findings.html#visual-heritage",
+    "title": "Findings",
+    "section": "5. Visual Heritage",
+    "text": "5. Visual Heritage\nA sample of the architectural and territorial legacy left behind by these institutional nodes. The grid below dynamically loads surviving structures from the our local asset archive filled mainly with personal pictures or Wikimedia Commons images."
+  }
+]
