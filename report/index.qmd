@@ -197,6 +197,17 @@ for evaluating institutional impact.
 
 The Monastic Matrix database [@monasticmatrix] served as the primary data source
 for community identification and order classification.
+
+## Visual Heritage
+
+```{=html}
+<iframe src="../docs/eda_output/p5_image_grid.html" width="100%" height="800px" style="border:none;"></iframe>
+```
+
+```{=html}
+Run `python src/dataviz.py`. It will scrape the real images from your dataset, build the 3x3 grid, and compute every correlation and breakdown you requested!
+```
+
 ## Next Steps
 
 - **[Community Explorer →](app.html)** — Interactive tool to explore individual communities
