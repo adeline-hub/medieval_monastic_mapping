@@ -1,34 +1,199 @@
-Community Explorer App
-│
-├── 1. Community Selector
-│   └── Dropdown or Map Click → Select a monastic community
-│
-├── 2. Community Profile Card
-│   ├── Name, Order, Foundation Date, Location
-│   ├── Status: Active / Dissolved / Transformed
-│   └── Cause of Dissolution (if applicable)
-│
-├── 3. ESG / Impact Score
-│   ├── Composite Score (0–100)
-│   ├── Radar Chart: Environmental / Social / Governance
-│   └── Band: Dark Green / Green / Amber / Red
-│
-├── 4. Order Protocol Card
-│   ├── Order Name & Governance Rules
-│   ├── Economic Model (Agriculture / Trade / Education)
-│   └── Territorial Strategy (Frontier / Urban / Coastal)
-│
-├── 5. Sister Communities Panel
-│   ├── Map: Nearest communities (same Order)
-│   ├── Table: Name, Distance, Shared Period
-│   └── Network Graph: Regional cluster visualization
-│
-├── 6. Economic Profile
-│   ├── Land Area & Agricultural Output
-│   ├── Revenue Sources (Tithes / Donations / Trade)
-│   └── Timeline: Key economic events
-│
-└── 7. Historical Timeline
-    ├── Foundation → Peak → Decline → Dissolution
-    ├── Key Events (Wars, Reforms, Plagues)
-    └── Architectural / Cultural Legacy
+---
+title: "Community Explorer"
+subtitle: "Interactive Monastic Community Profile & ESG Scoring"
+format:
+  html:
+    page-layout: full
+    css: report-style.css
+    toc: false
+---
+
+//| echo: false
+
+// ============================================
+// 1. DATA LOADING
+// ============================================
+
+communities = FileAttachment("../data/processed/monastic_sites.csv").csv({typed: true})
+orders = FileAttachment("../data/processed/orders_metadata.csv").csv({typed: true})
+esg = FileAttachment("../data/processed/esg_metrics.csv").csv({typed: true})
+network = FileAttachment("../data/processed/community_network.csv").csv({typed: true})
+economic = FileAttachment("../data/processed/economic_indicators.csv").csv({typed: true})
+
+
+// ============================================
+// 2. COMMUNITY SELECTOR
+// ============================================
+
+viewof selectedCommunity = Inputs.select(
+  communities.map(d => d.name),
+  {
+    label: "Select a Community",
+    sort: true,
+    unique: true
+  }
+)
+
+
+// ============================================
+// 3. FILTERED DATA
+// ============================================
+
+profile = communities.find(d => d.name === selectedCommunity)
+communityESG = esg.find(d => d.name === selectedCommunity)
+communityOrder = orders.find(d => d.order === profile.order)
+communityEcon = economic.filter(d => d.name === selectedCommunity)
+sisters = network.filter(d => d.source === selectedCommunity || d.target === selectedCommunity)
+
+
+// ============================================
+// 4. PROFILE CARD
+// ============================================
+
+html`
+<div class="profile-card">
+  <h2>${profile.name}</h2>
+  <table>
+    <tr><td><strong>Order</strong></td><td>${profile.order}</td></tr>
+    <tr><td><strong>Founded</strong></td><td>${profile.founded}</td></tr>
+    <tr><td><strong>Location</strong></td><td>${profile.location}</td></tr>
+    <tr><td><strong>Status</strong></td><td>${profile.status}</td></tr>
+    <tr><td><strong>Dissolution Cause</strong></td><td>${profile.dissolution_cause || "N/A"}</td></tr>
+  </table>
+</div>
+`
+
+
+// ============================================
+// 5. ESG RADAR CHART
+// ============================================
+
+{
+  const dimensions = ["environmental", "social", "governance"];
+  const scores = dimensions.map(d => communityESG[d]);
+  const band = communityESG.composite >= 75 ? "🟢 Dark Green"
+             : communityESG.composite >= 55 ? "🟢 Green"
+             : communityESG.composite >= 35 ? "🟡 Amber"
+             : "🔴 Red";
+
+  return html`
+    <div class="esg-panel">
+      <h3>ESG Score: ${communityESG.composite}/100 — ${band}</h3>
+    </div>
+  `;
+}
+
+Plot.plot({
+  projection: "identity",
+  marks: [
+    Plot.line(
+      ["Environmental", "Social", "Governance", "Environmental"].map((d, i) => ({
+        angle: (i / 3) * 2 * Math.PI,
+        r: [communityESG.environmental, communityESG.social, communityESG.governance, communityESG.environmental][i]
+      })),
+      {
+        x: d => d.r * Math.cos(d.angle),
+        y: d => d.r * Math.sin(d.angle),
+        stroke: "#33FFA2",
+        strokeWidth: 2
+      }
+    )
+  ],
+  width: 300,
+  height: 300
+})
+
+
+// ============================================
+// 6. ORDER PROTOCOL CARD
+// ============================================
+
+html`
+<div class="order-card">
+  <h3>Order: ${communityOrder.order}</h3>
+  <table>
+    <tr><td><strong>Governance Model</strong></td><td>${communityOrder.governance}</td></tr>
+    <tr><td><strong>Economic Model</strong></td><td>${communityOrder.economic_model}</td></tr>
+    <tr><td><strong>Territorial Strategy</strong></td><td>${communityOrder.territorial_strategy}</td></tr>
+    <tr><td><strong>Founded</strong></td><td>${communityOrder.order_founded}</td></tr>
+  </table>
+</div>
+`
+
+
+// ============================================
+// 7. SISTER COMMUNITIES
+// ============================================
+
+html`
+<div class="sisters-panel">
+  <h3>Sister Communities (${sisters.length})</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Community</th>
+        <th>Distance (km)</th>
+        <th>Shared Period</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${sisters.map(d => html`
+        <tr>
+          <td>${d.source === selectedCommunity ? d.target : d.source}</td>
+          <td>${d.distance_km}</td>
+          <td>${d.shared_period}</td>
+        </tr>
+      `)}
+    </tbody>
+  </table>
+</div>
+`
+
+
+// ============================================
+// 8. ECONOMIC TIMELINE
+// ============================================
+
+Plot.plot({
+  marks: [
+    Plot.lineY(communityEcon, {
+      x: "year",
+      y: "revenue_index",
+      stroke: "#FF33FF",
+      strokeWidth: 2
+    }),
+    Plot.dot(communityEcon, {
+      x: "year",
+      y: "revenue_index",
+      fill: "#33FFA2",
+      r: 4
+    })
+  ],
+  x: {label: "Year"},
+  y: {label: "Revenue Index"},
+  width: 600,
+  height: 300,
+  style: {
+    background: "transparent",
+    color: "#121212"
+  }
+})
+
+
+// ============================================
+// 9. HISTORICAL TIMELINE
+// ============================================
+
+html`
+<div class="timeline-panel">
+  <h3>Historical Timeline</h3>
+  <ul>
+    <li><strong>${profile.founded}</strong> — Foundation</li>
+    <li><strong>${profile.peak_year || "N/A"}</strong> — Peak Influence</li>
+    <li><strong>${profile.decline_year || "N/A"}</strong> — Decline</li>
+    <li><strong>${profile.dissolution_year || "Active"}</strong> — ${profile.status === "Active" ? "Still Active" : "Dissolution"}</li>
+  </ul>
+  <p><strong>Architectural Legacy:</strong> ${profile.architectural_legacy || "No data"}</p>
+  <p><strong>Cultural Legacy:</strong> ${profile.cultural_legacy || "No data"}</p>
+</div>
+`
