@@ -1,0 +1,7 @@
+pandas
+numpy
+plotly
+geopandas
+beautifulsoup4
+graphviz
+marimo
