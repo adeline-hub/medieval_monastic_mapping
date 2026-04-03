@@ -1,1 +1,200 @@
+---
+title: "Methodology"
+subtitle: "Data Engineering Framework for Medieval Institutional Analysis"
+author: "Nambona YANGUERE"
+date: last-modified
+format:
+  html:
+    css: report-style.css
+    toc: true
+    toc-depth: 3
+    code-fold: true
+  pdf:
+    toc: true
+    number-sections: true
+bibliography: references.bib
+---
 
+## 1. Research Objective
+
+This study aims to quantify the institutional, economic, and geopolitical impact
+of medieval monastic communities across Europe using modern data engineering
+and ESG analysis frameworks.
+
+The research addresses three questions:
+
+1. How did different **religious orders** (as institutional protocols)
+   influence economic output and territorial development?
+2. What is the correlation between **governance structure**
+   and institutional **resilience** across geopolitical disruptions?
+3. Can we quantify the **environmental and cultural legacy**
+   of monastic land management using ESG metrics?
+
+
+## 2. Data Acquisition
+
+### 2.1 Sources
+
+| Source | Type | Content |
+| :--- | :--- | :--- |
+| Ecclesiastical registers | Archival | Foundation dates, order affiliation, patronage |
+| Medieval cartularies | Archival | Land grants, tithes, economic transactions |
+| Archaeological surveys | Geospatial | Site coordinates, architectural remains |
+| Trade route databases | Geospatial | Medieval commercial corridors |
+| Academic publications | Secondary | Institutional history, regional economics |
+
+### 2.2 Collection Method
+
+Data was collected through a combination of:
+
+- **Automated web scraping** (Python / BeautifulSoup) targeting
+  digitized archival databases and open-access historical repositories
+- **LLM-assisted Named Entity Recognition (NER)** to extract structured
+  entities (founders, orders, dates, land grants) from unstructured
+  historical text in Latin and Old French
+- **Manual verification** against published academic sources
+  to validate AI-extracted entities
+
+```
+#| echo: true
+#| label: code-ner
+#| code-summary: "NER Extraction Example"
+
+# Simplified example of entity extraction pipeline
+# Full implementation in src/ner_extraction.py
+
+import json
+
+def extract_entities(text: str) -> dict:
+    """
+    Extract structured entities from historical text.
+    Uses LLM-based NER for Latin/Old French sources.
+
+    Returns:
+        dict with keys: name, order, founded, location, patron
+    """
+    # LLM prompt template for entity extraction
+    prompt = f"""
+    Extract the following entities from this historical text:
+    - Community name
+    - Religious order
+    - Foundation date
+    - Geographic location
+    - Founding patron (if mentioned)
+
+    Text: {text}
+
+    Return as JSON.
+    """
+    # result = llm.generate(prompt)
+    # return json.loads(result)
+    pass
+```
+## 3. Data Normalization
+
+### 3.1 Standardization
+
+Raw data from heterogeneous sources required normalization
+across several dimensions:
+
+| Dimension | Method | Tool |
+| :--- | :--- | :--- |
+| Dates | Conversion to ISO 8601 from Latin calendar references | Python (dateutil) |
+| Locations | Geocoding historical place names to modern coordinates | GeoPandas / Nominatim |
+| Economic values | Min-Max scaling of tithes and land grants | Pandas / Scikit-learn |
+| Order names | Mapping variant spellings to canonical order names | Custom lookup table |
+| Text language | Translation of Latin/Old French excerpts | LLM-assisted |
+
+### 3.2 Dataset Structure
+
+After normalization, five structured datasets were produced:
+
+```
+#| echo: true
+#| label: code-schema
+#| code-summary: "Dataset Schemas"
+
+schemas = {
+    "monastic_sites.csv": [
+        "name", "order", "founded", "location",
+        "lat", "lon", "status", "dissolution_cause",
+        "peak_year", "decline_year", "dissolution_year",
+        "architectural_legacy", "cultural_legacy"
+    ],
+    "orders_metadata.csv": [
+        "order", "governance", "economic_model",
+        "territorial_strategy", "order_founded"
+    ],
+    "esg_metrics.csv": [
+        "name", "environmental", "social",
+        "governance", "composite"
+    ],
+    "community_network.csv": [
+        "source", "target", "distance_km", "shared_period"
+    ],
+    "economic_indicators.csv": [
+        "name", "year", "revenue_index",
+        "land_area", "primary_revenue_source"
+    ]
+}
+
+for dataset, columns in schemas.items():
+    print(f"{dataset}: {len(columns)} columns")
+```
+
+## 4. Analytical Framework
+
+### 4.1 ESG Scoring
+
+Each community receives a composite score (0–100) across three dimensions:
+
+| Dimension | Weight | Indicators |
+| :--- | :--- | :--- |
+| Environmental | 35% | Land reclamation, agricultural diversification, water management |
+| Social | 35% | Education, hospitality, community employment, cultural production |
+| Governance | 30% | Rule adherence, institutional continuity, succession protocols |
+
+### 4.2 Geopolitical Analysis
+
+Communities are analyzed against:
+
+- **Proximity to trade routes** (km to nearest documented corridor)
+- **Border zone classification** (frontier vs. interior positioning)
+- **Political stability index** of the surrounding region per century
+- **Order-level territorial strategy** (documented expansion protocols)
+
+### 4.3 Network Analysis
+
+Sister communities are linked using:
+
+- **Same order affiliation** within a defined radius (150 km)
+- **Documented dependency relationships** (mother/daughter houses)
+- **Shared patronage networks** (same founding family or bishop)
+
+### 4.4 Temporal Analysis
+
+Economic and institutional data is segmented into century-level periods
+to identify:
+
+- **Growth phases** correlated with political stability
+- **Decline phases** correlated with geopolitical disruption
+- **Resilience patterns** linked to governance protocols
+
+
+## 5. Reproducibility
+
+All code is available in the project repository:
+
+- `src/scraping.py` — Data acquisition pipeline
+- `src/ner_extraction.py` — AI entity extraction
+- `src/normalization.py` — Cleaning and scaling
+- `src/esg_scoring.py` — ESG dimension calculations
+- `src/network.py` — Sister community proximity
+- `src/viz.py` — Visualization functions
+
+Raw data is excluded from the repository (`.gitignore`)
+to respect archival licensing. Processed datasets are included
+in `data/processed/` for full reproducibility of the analysis.
+
+
+## References
