@@ -21,3 +21,18 @@ DANKI INSTITUTIONAL AUDIT: MASTER EDA PIPELINE
 ============================================================
 MASTER EDA COMPLETE. 11 Files output to docs/eda_output/
 ============================================================
+
+============================================================
+DANKI REPORT DATAVIZ FACTORY
+============================================================
+
+Generating Part 1: Ecosystem & ESG...
+c:\Users\AdelinePruvost\Desktop\PRINT\concours controlr\temp\monastic mapping\archives\src\dataviz.py:109: DeprecationWarning:
+
+*density_mapbox* is deprecated! Use *density_map* instead. Learn more at: https://plotly.com/python/mapbox-to-maplibre/
+
+Generating Part 2: Territory & Geopolitics...
+Generating Part 3: Economy...
+Generating Part 4: Demographics...
+Generating Part 5: Image Grid...
+ [✓] p5_image_grid.html
