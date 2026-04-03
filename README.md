@@ -1,7 +1,7 @@
 # System Analysis of Medieval Wealth and Geopolitical Connectivity - Monastic Mapping
 *medieval monastic community unveiled*
 
-<img width='' src='https://github.com/adeline-hub/monastic.matrix/blob/main/DATAVIZ/monasticwordcloud.png?raw=true'/>
+<img width='' src='[https://github.com/adeline-hub/monastic.matrix/blob/main/DATAVIZ/monasticwordcloud.png?raw=true](https://github.com/adeline-hub/medieval_monastic_mapping/blob/main/archives/monasticwordcloud.png?raw=true)'/>
 
 
 ## Executive Summary
