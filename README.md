@@ -1,7 +1,7 @@
 # System Analysis of Medieval Wealth and Geopolitical Connectivity - Monastic Mapping
 *medieval monastic community unveiled*
 
-<img width='' src='[https://github.com/adeline-hub/monastic.matrix/blob/main/DATAVIZ/monasticwordcloud.png?raw=true](https://github.com/adeline-hub/medieval_monastic_mapping/blob/main/archives/monasticwordcloud.png?raw=true)'/>
+<img width='' src='https://github.com/adeline-hub/medieval_monastic_mapping/blob/main/archives/monasticwordcloud.png?raw=true'/>
 
 
 ## Executive Summary
@@ -14,7 +14,7 @@ This project treats medieval monastic communities as decentralized economic node
 
 The pipeline standardizes unstructured historical records into a structured dataset for impact analysis:
 
-<img width='' src='[https://github.com/adeline-hub/monastic.matrix/blob/main/DATAVIZ/monasticwordcloud.png?raw=true](https://github.com/adeline-hub/medieval_monastic_mapping/blob/main/report/assets/monastic_audit_flow.png?raw=true)'/>
+<img width='' src='https://github.com/adeline-hub/medieval_monastic_mapping/blob/main/report/assets/monastic_audit_flow.png?raw=true'/>
 
 ## Research Pillars
 
