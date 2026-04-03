@@ -1,0 +1,30 @@
+name: Deploy Quarto to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Triggers the action when you push to main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render Quarto Project
+        run: |
+          cd report
+          quarto render
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs  # Takes everything in docs/ (including your Python charts) and publishes it
