@@ -307,6 +307,10 @@ fig.show()
 
 ## 4. Network Analysis
 
+```{=html}
+<iframe src="../docs/eda_output/p4_gender_heatmap.html" width="100%" height="500px" style="border:none;"></iframe>
+```
+
 ### 4.1 Sister Community Connectivity
 ```
 #| echo: false
