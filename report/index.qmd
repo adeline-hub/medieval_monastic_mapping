@@ -1,1 +1,197 @@
+---
+title: "Medieval Monastic Mapping"
+subtitle: "Longitudinal Institutional Mapping: Geopolitical Impact & ESG Analysis"
+author: "Nambona YANGUERE"
+date: last-modified
+format:
+  html:
+    page-layout: full
+    css: report-style.css
+    toc: true
+    toc-depth: 2
+    code-fold: true
+---
 
+## Project Overview
+
+This project investigates medieval monastic communities as **decentralized institutional agents**
+that shaped European territorial, economic, and cultural infrastructure over eight centuries.
+
+By applying modern data engineering and ESG frameworks to historical records,
+we quantify the impact of monastic orders on:
+
+- **Land transformation** (polders, viticulture, deforestation management)
+- **Regional economic stabilization** (agricultural output, trade route proximity)
+- **Institutional governance** (order-specific protocols and their resilience)
+- **Geopolitical positioning** (territorial strategy by order)
+- **Cultural and architectural heritage** (lasting contributions to landscape and knowledge)
+
+```
+#| echo: false
+#| label: fig-pipeline
+#| fig-cap: "Data Engineering Pipeline"
+
+import graphviz
+
+dot = graphviz.Digraph(format='png')
+
+c_violet = '#FF33FF'
+c_vert = '#33FFA2'
+c_charbon = '#121212'
+
+dot.attr(rankdir='LR', bgcolor='transparent')
+dot.attr('node', style='filled', fontname='Inter, sans-serif',
+         fontsize='10', penwidth='2', fillcolor='white')
+
+dot.node('START', 'START', shape='ellipse', color=c_vert)
+dot.node('A', 'Raw Archive Data', shape='box', color=c_charbon)
+dot.node('B', 'Scraping &\nAI Extraction', shape='box', color=c_charbon)
+dot.node('C', 'Normalization &\nESG Mapping', shape='box', color=c_charbon)
+dot.node('D', 'Order-Protocol\nAnalysis', shape='diamond', color=c_violet)
+dot.node('E', 'Interactive\nVisualization', shape='box', color=c_charbon)
+dot.node('F', 'Longitudinal\nStudy', shape='box', color=c_charbon)
+dot.node('END', 'END', shape='ellipse', color=c_vert)
+
+dot.edge('START', 'A', color=c_charbon, penwidth='1.5')
+dot.edge('A', 'B', color=c_charbon, penwidth='1.5')
+dot.edge('B', 'C', color=c_charbon, penwidth='1.5')
+dot.edge('C', 'D', color=c_charbon, penwidth='1.5')
+dot.edge('D', 'E', color=c_charbon, penwidth='1.5')
+dot.edge('D', 'F', color=c_charbon, penwidth='1.5')
+dot.edge('E', 'END', color=c_charbon, penwidth='1.5')
+dot.edge('F', 'END', color=c_charbon, penwidth='1.5')
+
+dot
+```
+## Key Findings
+
+### Geopolitical Distribution
+
+```
+#| echo: false
+#| label: fig-map
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("../data/processed/monastic_sites.csv")
+
+fig = px.scatter_mapbox(
+    df,
+    lat="lat",
+    lon="lon",
+    color="order",
+    hover_name="name",
+    hover_data=["founded", "status"],
+    zoom=4,
+    height=500,
+    color_discrete_sequence=["#33FFA2", "#FF33FF", "#737373", "#FFFFFF"]
+)
+
+fig.update_layout(
+    mapbox_style="carto-darkmatter",
+    margin=dict(l=0, r=0, t=0, b=0),
+    paper_bgcolor="#1A1A1A",
+    legend=dict(font=dict(color="white"))
+)
+
+fig.show()
+```
+**Insights:**
+
+- Cistercian foundations cluster along **frontier zones** and river systems,
+  consistent with their land reclamation protocol (polders, marshland drainage)
+- Benedictine sites concentrate near **established urban centers** and trade routes,
+  reflecting an asset preservation strategy
+- Carthusian communities occupy **remote, mountainous terrain**,
+  indicating deliberate isolation as a governance principle
+
+### ESG Score Distribution by Order
+
+```
+#| echo: false
+#| label: fig-esg
+
+import pandas as pd
+import plotly.express as px
+
+esg = pd.read_csv("../data/processed/esg_metrics.csv")
+sites = pd.read_csv("../data/processed/monastic_sites.csv")
+merged = esg.merge(sites[["name", "order"]], on="name")
+
+fig = px.box(
+    merged,
+    x="order",
+    y="composite",
+    color="order",
+    color_discrete_sequence=["#33FFA2", "#FF33FF", "#737373"],
+    height=400
+)
+
+fig.update_layout(
+    paper_bgcolor="#1A1A1A",
+    plot_bgcolor="#1A1A1A",
+    font=dict(color="white"),
+    xaxis=dict(title="Order"),
+    yaxis=dict(title="Composite ESG Score (0-100)"),
+    showlegend=False
+)
+
+fig.show()
+```
+
+**Insights:**
+
+- Cistercian communities show higher **environmental scores**
+  due to documented land transformation projects
+- Benedictine communities score higher on **governance**
+  due to longer institutional continuity and centralized rule adoption
+- Orders with decentralized governance show wider score variance,
+  suggesting local conditions had greater influence on outcomes
+
+### Economic Output Over Time
+
+```
+#| echo: false
+#| label: fig-economic
+
+import pandas as pd
+import plotly.express as px
+
+econ = pd.read_csv("../data/processed/economic_indicators.csv")
+sites = pd.read_csv("../data/processed/monastic_sites.csv")
+merged = econ.merge(sites[["name", "order"]], on="name")
+grouped = merged.groupby(["year", "order"])["revenue_index"].mean().reset_index()
+
+fig = px.line(
+    grouped,
+    x="year",
+    y="revenue_index",
+    color="order",
+    color_discrete_sequence=["#33FFA2", "#FF33FF", "#737373"],
+    height=400
+)
+
+fig.update_layout(
+    paper_bgcolor="#1A1A1A",
+    plot_bgcolor="#1A1A1A",
+    font=dict(color="white"),
+    xaxis=dict(title="Year"),
+    yaxis=dict(title="Average Revenue Index")
+)
+
+fig.show()
+```
+
+**Insights:**
+
+- Revenue peaks correlate with periods of **political stability** and **trade route expansion**
+- Sharp declines align with documented **geopolitical disruptions** (wars, plagues, reformations)
+- Cistercian economic output shows earlier peaks due to
+  aggressive agricultural investment in the 12th–13th centuries
+
+## Next Steps
+
+- **[Community Explorer →](app.html)** — Interactive tool to explore individual communities
+- **[Full Methodology →](methodology.html)** — Scientific framework and data sources
+- **[Findings →](findings.html)** — Detailed analysis and discussion
