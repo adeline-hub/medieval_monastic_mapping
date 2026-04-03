@@ -190,6 +190,13 @@ fig.show()
 - Cistercian economic output shows earlier peaks due to
   aggressive agricultural investment in the 12th–13th centuries
 
+The Cistercian land reclamation strategy is well documented [@burton2011; @tys2013].
+
+Modern ESG frameworks [@eutaxonomy2020; @sfdr2019] provide a parallel structure
+for evaluating institutional impact.
+
+The Monastic Matrix database [@monasticmatrix] served as the primary data source
+for community identification and order classification.
 ## Next Steps
 
 - **[Community Explorer →](app.html)** — Interactive tool to explore individual communities
