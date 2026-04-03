@@ -105,9 +105,15 @@ fig.show()
 
 ## 2. ESG Performance Analysis
 
+### Ecosystem and ESG Impact
+The data reveals strong correlations between social extraction and overall ESG performance.
+
+```{=html}
+<iframe src="../docs/eda_output/p1_social_box.html" width="100%" height="500px" style="border:none;"></iframe>
+```
 ### 2.1 Composite Score Distribution
 
-````
+```
 #| echo: false
 #| label: fig-composite
 
