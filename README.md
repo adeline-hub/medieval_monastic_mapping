@@ -28,6 +28,11 @@ The pipeline standardizes unstructured historical records into a structured data
 * **Normalization**: Pandas-driven data cleaning and Min-Max scaling for comparative historical metrics.
 * **Analysis**: EDA focused on spatial-temporal correlation between monastic sites and trade corridors.
 * **Visualization**: Plotly/Dash for interactive spatial impact assessment.
+**Component**  	  **Technology**	      **Goal**
+**Workbench**	      Marimo (Python)	      Transparency of method & EDA exploration.
+**Reporting**	      Quarto (PDF/HTML)	    Professional scientific communication.
+**Hosting**         GitHub Pages	        Unified access to both layers.
+
 
 ## Core Findings
 ...Read Full Audit [PDF]
