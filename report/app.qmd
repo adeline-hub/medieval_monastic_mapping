@@ -1,1 +1,34 @@
-
+Community Explorer App
+│
+├── 1. Community Selector
+│   └── Dropdown or Map Click → Select a monastic community
+│
+├── 2. Community Profile Card
+│   ├── Name, Order, Foundation Date, Location
+│   ├── Status: Active / Dissolved / Transformed
+│   └── Cause of Dissolution (if applicable)
+│
+├── 3. ESG / Impact Score
+│   ├── Composite Score (0–100)
+│   ├── Radar Chart: Environmental / Social / Governance
+│   └── Band: Dark Green / Green / Amber / Red
+│
+├── 4. Order Protocol Card
+│   ├── Order Name & Governance Rules
+│   ├── Economic Model (Agriculture / Trade / Education)
+│   └── Territorial Strategy (Frontier / Urban / Coastal)
+│
+├── 5. Sister Communities Panel
+│   ├── Map: Nearest communities (same Order)
+│   ├── Table: Name, Distance, Shared Period
+│   └── Network Graph: Regional cluster visualization
+│
+├── 6. Economic Profile
+│   ├── Land Area & Agricultural Output
+│   ├── Revenue Sources (Tithes / Donations / Trade)
+│   └── Timeline: Key economic events
+│
+└── 7. Historical Timeline
+    ├── Foundation → Peak → Decline → Dissolution
+    ├── Key Events (Wars, Reforms, Plagues)
+    └── Architectural / Cultural Legacy
